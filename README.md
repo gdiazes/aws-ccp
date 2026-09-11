@@ -48,6 +48,6 @@ AWS CCP/
 - **[07. Familiarización con la Consola de AWS](02%20CLOUD%20CONCEPTS/07_Getting_Familiar_with_AWS_Console.md):** Barra de navegación superior, **AWS CloudShell** (1 GB persistente), **AWS Trusted Advisor** y widgets del panel principal.
 - **[08. Comparativa de Planes de Soporte de AWS](02%20CLOUD%20CONCEPTS/08_AWS_Support_Plans_Comparison.md):** Matriz detallada entre *Basic*, *Developer*, *Business*, *Enterprise On-Ramp* y *Enterprise* (SLAs, asignación de TAM y precios).
 - **[09. Evaluación Formativa del Módulo 02 (Quiz de 20 Preguntas)](02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Quiz.md):** Cuestionario integral de 20 preguntas con justificaciones técnicas y citas APA 7.ª edición.
-  - 🌐 **[Simulador Web Interactivo con Calificación Vigesimal](02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Interactive_Quiz.html):** Ejecutable en navegador con cálculo automático de nota (0 a 20 puntos) y equivalencia AWS (100 a 1000).
+  - 🌐 **[Simulador Web Interactivo Online (1 Clic)](https://htmlpreview.github.io/?https://github.com/gdiazes/aws-ccp/blob/main/02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Interactive_Quiz.html)** / [Archivo Local](02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Interactive_Quiz.html) : Ejecutable en navegador con cálculo automático de nota (0 a 20 puntos) y equivalencia AWS (100 a 1000).
 
 

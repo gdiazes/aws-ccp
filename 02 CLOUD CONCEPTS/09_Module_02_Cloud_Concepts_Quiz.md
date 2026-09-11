@@ -3,8 +3,9 @@
 Este documento constituye la **evaluación formativa integral del Módulo 02: Conceptos de la Nube**, diseñada bajo los estándares de evaluación y dominios de conocimiento del examen oficial **AWS Certified Cloud Practitioner (CLF-C02)**. Contiene 20 preguntas de opción múltiple estructuradas con justificación técnica exhaustiva y sustentación bajo normas APA 7.ª edición.
 
 > 🚀 **Simulador Interactivo en Tiempo Real:**  
-> Puede ejecutar esta evaluación de manera interactiva con temporizador, selección de opciones y cálculo automático de nota final abriendo el archivo:  
-> **👉 [Abrir Simulador Web Interactivo (Quiz Modular 02)](09_Module_02_Cloud_Concepts_Interactive_Quiz.html)**
+> Puede ejecutar esta evaluación con temporizador, selección de opciones y cálculo automático de nota vigesimal de dos formas:  
+> - 🌐 **[Ejecutar Simulador Online con 1 Clic (Navegador Web)](https://htmlpreview.github.io/?https://github.com/gdiazes/aws-ccp/blob/main/02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Interactive_Quiz.html)**  
+> - 💻 **En su equipo local:** Abrir haciendo doble clic en el archivo [09_Module_02_Cloud_Concepts_Interactive_Quiz.html](09_Module_02_Cloud_Concepts_Interactive_Quiz.html) en Chrome, Edge o su navegador favorito.
 
 ---
 

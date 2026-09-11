@@ -47,7 +47,7 @@ Al finalizar el estudio y las evaluaciones de este módulo, el estudiante será 
 | Formato | Recurso | Características |
 | :---: | :--- | :--- |
 | 📄 **Guía de Estudio** | **[Evaluación Modular (Quiz de 20 Preguntas)](09_Module_02_Cloud_Concepts_Quiz.md)** | Cuestionario formal con 20 preguntas, opciones A-D, respuestas correctas, análisis técnico de opciones incorrectas y baremo vigesimal. |
-| 🌐 **Simulador Web** | **[Simulador Interactivo con Calificación Vigesimal](09_Module_02_Cloud_Concepts_Interactive_Quiz.html)** | Aplicación web interactiva con temporizador, calificación automática sobre **20.0 Puntos** ($\ge 14.0\text{ Ptos}$ para aprobar), equivalencia AWS (100-1000 pts) y retroalimentación inmediata. |
+| 🌐 **Simulador Web** | **[Simulador Interactivo Online (1 Clic)](https://htmlpreview.github.io/?https://github.com/gdiazes/aws-ccp/blob/main/02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Interactive_Quiz.html)** / [Archivo Local](09_Module_02_Cloud_Concepts_Interactive_Quiz.html) | Aplicación web interactiva con temporizador, calificación automática sobre **20.0 Puntos** ($\ge 14.0\text{ Ptos}$ para aprobar), equivalencia AWS (100-1000 pts) y retroalimentación inmediata. |
 
 ---
 
