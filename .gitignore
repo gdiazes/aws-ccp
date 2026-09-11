@@ -1,3 +1,7 @@
+# Excluir transcripciones originales y documentos pesados
+*.txt
+*.pdf
+
 # Archivos del sistema y temporales
 Thumbs.db
 Desktop.ini

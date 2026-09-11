@@ -6,12 +6,13 @@ description: >-
   integrando fuentes primarias oficiales de AWS y estándares (NIST), citas textuales bilingües
   (inglés/español), citación rigurosa bajo normas APA 7.ª edición (Autor, año), exclusión total
   de intermediarios comerciales (ej. Whizlabs), generación e incrustación automática de imágenes
-  de diagramación arquitectónica (estilo técnico minimalista Fortinet/line-art con verde oscuro y verde azulado / teal).
+  de diagramación arquitectónica (estilo técnico minimalista Fortinet/line-art con verde oscuro y verde azulado / teal),
+  y sincronización/publicación automática a GitHub de los archivos Markdown (.md), diagramas y estructura.
 ---
 
-# Skill: Conversión de Transcripciones a Guías Técnicas de AWS CCP (CLF-C02)
+# Skill: Conversión de Transcripciones a Guías Técnicas de AWS CCP (CLF-C02) y Sincronización con GitHub
 
-Este skill define la metodología, directrices de redacción, formato académico-técnico y flujo automatizado de generación visual para transformar transcripciones de cursos y notas de preparación de AWS en guías técnicas de referencia estructuradas en Markdown con diagramas arquitectónicos de alta fidelidad incrustados.
+Este skill define la metodología, directrices de redacción, formato académico-técnico, flujo automatizado de generación visual y sincronización con GitHub para transformar transcripciones de cursos y notas de preparación de AWS en guías técnicas de referencia estructuradas en Markdown con diagramas arquitectónicos de alta fidelidad.
 
 ---
 
@@ -20,7 +21,8 @@ Este skill define la metodología, directrices de redacción, formato académico
 1. **Idioma:** Español formal técnico.
 2. **Tono y Voz:** Uso estricto de **tercera persona** y **voz pasiva / impersonal** (*"se define"*, *"se establece"*, *"se analiza"*, *"se recomienda"*). Evitar la primera persona (*"yo"*, *"nosotros"*).
 3. **Exclusión Estricta de Intermediarios:** Se prohíbe taxativamente toda mención, cita o atribución a plataformas comerciales de cursos o intermediarios de formación (por ejemplo, *Whizlabs*, *Wiz Labs*, nombres de instructores particulares o portales de cursos de terceros). Todo el sustento conceptual, citas y referencias bibliográficas deben provenir **única y exclusivamente de fuentes primarias oficiales** (Amazon Web Services, NIST, Gartner, ISO/IEC).
-4. **Estructura Modular:**
+4. **Preservación de Archivos Fuente:** Los archivos originales `.txt` y `.pdf` **nunca deben eliminarse** del entorno local de trabajo; deben conservarse íntegros como fuente de consulta y mantenerse ignorados en el control de versiones vía `.gitignore`.
+5. **Estructura Modular:**
    - **Título y Resumen Ejecutivo:** Definición formal del tema y objetivos evaluativos.
    - **Desarrollo Técnico y Conceptual:** Desglose detallado con subtítulos numerados.
    - **Tablas Comparativas y Diagramas:** Cuadros resumen de características, servicios, modelos o ponderaciones con diagramas Mermaid cuando corresponda.
@@ -74,11 +76,15 @@ Prompt: Hand-drawn technical network diagram, isolated on a transparent backgrou
 
 ---
 
-## 4. Flujo de Ejecución por Archivo
+## 4. Flujo de Ejecución y Sincronización con GitHub
 
-1. **Lectura y Análisis:** Leer el archivo fuente `.txt`.
+1. **Lectura y Análisis:** Leer el archivo fuente `.txt` local (manteniendo el archivo `.txt` intacto).
 2. **Depuración de Intermediarios:** Filtrar saludos, referencias a instructores, menciones a portales de terceros y publicidad de cursos.
 3. **Investigación y Selección de Fuentes Primarias:** Mapear los conceptos técnicos a las publicaciones oficiales de AWS o estándares equivalentes.
 4. **Diseño y Ejecución de Prompts Arquitectónicos:** Generar las imágenes mediante el motor visual para cada sección.
 5. **Generación del Markdown (.md):** Crear la guía técnica formal incrustando las imágenes renderizadas y los bloques de prompt correspondientes.
-6. **Validación:** Garantizar que no existan menciones a Whizlabs/Wiz Labs ni terceras entidades formativas, verificando la consistencia de las citas, las imágenes incrustadas y la bibliografía APA 7.
+6. **Actualización del README y Estructura:** Actualizar el índice del repositorio `README.md` si se incorporan nuevos módulos.
+7. **Sincronización Automática con GitHub:**
+   - Ejecutar `git add .` (verificando que `.gitignore` excluya `.txt` y `.pdf`).
+   - Crear un commit descriptivo: `git commit -m "docs: actualización de guías técnicas y diagramas"`.
+   - Realizar el push a la rama principal: `git push origin main`.
