@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Examen Secuencial - Módulo 02: Conceptos de la Nube (AWS CLF-C02)</title>
+  <title>Simulador de Examen - Módulo 02: Conceptos de la Nube (AWS CLF-C02)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at 50% 0%, #0d1b2a 0%, #050b14 100%);
-      --card-bg: rgba(13, 27, 42, 0.88);
+      --card-bg: rgba(13, 27, 42, 0.9);
       --card-border: rgba(46, 196, 182, 0.25);
       --card-hover-border: rgba(46, 196, 182, 0.6);
       --primary-teal: #2ec4b6;
@@ -39,20 +39,20 @@
       background: var(--bg-gradient);
       color: var(--text-main);
       min-height: 100vh;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .container {
-      max-width: 860px;
+    .main-wrapper {
+      max-width: 1200px;
       width: 100%;
     }
 
     header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       padding-bottom: 1.25rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -66,7 +66,7 @@
       border: 1px solid var(--primary-teal);
       font-size: 0.82rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -77,32 +77,29 @@
       background: linear-gradient(135deg, #ffffff 0%, #2ec4b6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
     .subtitle {
       color: var(--text-muted);
-      font-size: 0.98rem;
+      font-size: 0.95rem;
     }
 
-    /* Meta bar fija */
-    .meta-bar {
+    /* Top Stats Bar */
+    .top-stats-bar {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 1rem 1.5rem;
+      padding: 0.85rem 1.25rem;
       margin-bottom: 1.5rem;
-      position: sticky;
-      top: 1rem;
-      z-index: 100;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
-    .stat-item {
+    .stat-box {
       display: flex;
       flex-direction: column;
       text-align: center;
@@ -117,19 +114,165 @@
       margin-bottom: 0.2rem;
     }
 
-    .stat-value {
+    .stat-val {
       font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--primary-teal);
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .pending-display {
-      color: var(--accent-orange);
+    /* Layout Principal 2 Columnas */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 1.75rem;
+      align-items: start;
     }
 
-    .timer-display {
+    /* Panel Izquierdo: Entradas de Cine (Tickets) */
+    .ticket-panel {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.25rem;
+      position: sticky;
+      top: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .ticket-panel-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Ticket Estilo Entrada de Cine */
+    .cinema-ticket {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0.65rem 0.2rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: default;
+      transition: all 0.25s ease;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cinema-ticket .ticket-num {
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .cinema-ticket .ticket-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      margin-top: 0.35rem;
+      transition: all 0.25s ease;
+    }
+
+    /* Estados de los Boletos durante el Examen */
+    .cinema-ticket.current {
+      background: rgba(46, 196, 182, 0.18);
+      border: 1px solid var(--primary-teal);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(46, 196, 182, 0.5);
+      transform: scale(1.05);
+    }
+    .cinema-ticket.current .ticket-status-dot {
+      background: var(--primary-teal);
+      box-shadow: 0 0 8px var(--primary-teal);
+    }
+
+    .cinema-ticket.answered {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.5);
       color: #38bdf8;
+    }
+    .cinema-ticket.answered .ticket-status-dot {
+      background: #38bdf8;
+    }
+
+    /* Estados de los Boletos Post-Examen (Finalizado) */
+    .cinema-ticket.ticket-correct {
+      background: rgba(46, 204, 113, 0.2) !important;
+      border: 1px solid var(--primary-green) !important;
+      color: #ffffff !important;
+      cursor: pointer !important;
+    }
+    .cinema-ticket.ticket-correct .ticket-status-dot {
+      background: var(--primary-green) !important;
+      box-shadow: 0 0 8px var(--primary-green);
+    }
+
+    .cinema-ticket.ticket-incorrect {
+      background: rgba(231, 29, 54, 0.2) !important;
+      border: 1px solid var(--danger-red) !important;
+      color: #ffffff !important;
+      cursor: pointer !important;
+    }
+    .cinema-ticket.ticket-incorrect .ticket-status-dot {
+      background: var(--danger-red) !important;
+      box-shadow: 0 0 8px var(--danger-red);
+    }
+
+    .cinema-ticket.ticket-active-review {
+      box-shadow: 0 0 18px #ffffff !important;
+      border-width: 2px !important;
+      transform: scale(1.12);
+    }
+
+    .ticket-legend {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .legend-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    /* Panel Derecho: Área Principal de Pregunta */
+    .content-panel {
+      min-width: 0;
     }
 
     .progress-bar-container {
@@ -137,7 +280,7 @@
       height: 8px;
       background: rgba(255, 255, 255, 0.08);
       border-radius: 999px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       overflow: hidden;
     }
 
@@ -148,14 +291,12 @@
       transition: width 0.35s ease;
     }
 
-    /* Question Container */
     .question-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
       border-radius: 18px;
       padding: 2.25rem;
-      margin-bottom: 1.75rem;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
       animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -415,41 +556,12 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Review View */
-    #reviewContainer {
-      display: none;
-      width: 100%;
-      margin-top: 2rem;
-    }
-
-    .review-header {
-      text-align: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .review-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .review-card.correct-card {
-      border-left: 6px solid var(--primary-green);
-    }
-
-    .review-card.incorrect-card {
-      border-left: 6px solid var(--danger-red);
-    }
-
+    /* Feedback Box */
     .feedback-box {
-      margin-top: 1.25rem;
-      padding: 1.15rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border-radius: 12px;
+      font-size: 0.98rem;
       line-height: 1.6;
     }
 
@@ -467,7 +579,7 @@
 
     .feedback-apa {
       margin-top: 0.65rem;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       font-style: italic;
     }
@@ -482,13 +594,24 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    @media (max-width: 640px) {
-      .meta-bar {
+    @media (max-width: 900px) {
+      .layout-grid {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
       }
-      .metrics-grid {
-        grid-template-columns: 1fr;
+      .ticket-panel {
+        position: static;
+      }
+      .ticket-grid {
+        grid-template-columns: repeat(10, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .ticket-grid {
+        grid-template-columns: repeat(5, 1fr);
       }
       .actions-bar {
         justify-content: center;
@@ -502,68 +625,87 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="main-wrapper">
     <header>
       <span class="badge">AWS Certified Cloud Practitioner (CLF-C02)</span>
-      <h1>Simulador Modular Secuencial</h1>
-      <p class="subtitle">Módulo 02: Conceptos de la Nube • Preguntas 1 a 1 sin retroceso • Sistema Vigesimal (0-20 Pts)</p>
+      <h1>Simulador Modular Interactivo</h1>
+      <p class="subtitle">Módulo 02: Conceptos de la Nube • Panel de Boletos (Entradas) • Escala Vigesimal (0-20 Puntos)</p>
     </header>
 
-    <div class="meta-bar">
-      <div class="stat-item">
-        <span class="stat-label">Progreso Actual</span>
-        <span class="stat-value" id="currentQDisplay">Pregunta 01 / 20</span>
+    <div class="top-stats-bar">
+      <div class="stat-box">
+        <span class="stat-label">Pregunta Activa</span>
+        <span class="stat-val" id="statActiveQ">01 / 20</span>
       </div>
-      <div class="stat-item">
+      <div class="stat-box">
         <span class="stat-label">Por Resolver</span>
-        <span class="stat-value pending-display" id="pendingDisplay">19 pendientes</span>
+        <span class="stat-val" id="statPending" style="color: var(--accent-orange);">19 pendientes</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-label">Tiempo Transcurrido</span>
-        <span class="stat-value timer-display" id="timerDisplay">00:00</span>
+      <div class="stat-box">
+        <span class="stat-label">Tiempo</span>
+        <span class="stat-val" id="timerDisplay" style="color: #38bdf8;">00:00</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Aprobación</span>
+        <span class="stat-val" style="color: #2ecc71;">&ge; 14.0 / 20</span>
       </div>
     </div>
 
-    <div class="progress-bar-container">
-      <div class="progress-bar-fill" id="progressBar"></div>
-    </div>
-
-    <!-- Contenedor del Examen Activo (1 a 1) -->
-    <div id="activeExamSection">
-      <div class="question-card" id="currentCard">
-        <div class="question-header">
-          <span class="q-badge" id="cardBadge">PREGUNTA 01 / 20</span>
-          <span class="q-notice">&#9888; Avance secuencial definitivo (sin retroceso)</span>
+    <div class="layout-grid">
+      <!-- Columna Izquierda: Entradas de Cine (Tickets) -->
+      <aside class="ticket-panel">
+        <div class="ticket-panel-title">
+          <span>Boletos de Preguntas</span>
+          <span id="ticketHeaderStatus" style="font-size: 0.75rem; color: var(--primary-teal);">En Curso</span>
         </div>
-        <div class="q-text" id="cardQuestionText">Cargando pregunta...</div>
-        <div class="options-list" id="cardOptionsList"></div>
 
-        <div class="actions-bar">
-          <button type="button" class="btn btn-next" id="btnNext" disabled onclick="handleNextQuestion()">
-            Siguiente Pregunta &#10140;
-          </button>
+        <div class="ticket-grid" id="ticketGrid"></div>
+
+        <div class="ticket-legend" id="ticketLegend">
+          <div class="legend-item">
+            <div class="legend-bullet" style="background: var(--primary-teal);"></div>
+            <span>Pregunta Activa</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-bullet" style="background: #38bdf8;"></div>
+            <span>Resuelta</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-bullet" style="background: rgba(255,255,255,0.2);"></div>
+            <span>Pendiente</span>
+          </div>
         </div>
-      </div>
-    </div>
+      </aside>
 
-    <!-- Sección de Revisión Final (Post-Calificación) -->
-    <div id="reviewContainer">
-      <div class="review-header">
-        <h2>Revisión Técnica Detallada de Respuestas</h2>
-        <p style="color: var(--text-muted); margin-top: 0.25rem;">
-          Consulte la retroalimentación y justificación académica de cada pregunta con base en la documentación oficial de AWS.
-        </p>
-      </div>
-      <div id="reviewList"></div>
-      <div style="text-align: center; margin: 3rem 0;">
-        <button class="btn btn-next" onclick="restartExam()">
-          &#8635; Realizar un Nuevo Intento
-        </button>
-      </div>
+      <!-- Columna Derecha: Tarjeta de Pregunta / Revisión -->
+      <main class="content-panel">
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+
+        <div class="question-card" id="questionCard">
+          <div class="question-header">
+            <span class="q-badge" id="cardBadge">PREGUNTA 01 / 20</span>
+            <span class="q-notice" id="cardNotice">&#9888; Avance secuencial definitivo (sin retroceso)</span>
+          </div>
+
+          <div class="q-text" id="cardQuestionText">Cargando pregunta...</div>
+          <div class="options-list" id="cardOptionsList"></div>
+
+          <!-- Bloque de Retroalimentación en Modo Revisión -->
+          <div id="feedbackContainer" style="display: none;"></div>
+
+          <div class="actions-bar" id="actionsBar">
+            <button type="button" class="btn btn-next" id="btnNext" disabled onclick="handleNextQuestion()">
+              Siguiente Pregunta &#10140;
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
 
-  <!-- Modal de Resultados -->
+  <!-- Modal de Resultados Finales -->
   <div class="modal-overlay" id="resultModal">
     <div class="result-card">
       <div id="statusTag" class="status-tag status-passed">¡APROBADO!</div>
@@ -594,8 +736,8 @@
 
       <p id="resultMsg" style="line-height: 1.6; margin-bottom: 2rem; color: #e2e8f0; font-size: 0.98rem;"></p>
 
-      <button class="btn btn-next" style="width: 100%; justify-content: center;" onclick="showReviewView()">
-        Revisar Todas las Preguntas y Justificaciones &#10140;
+      <button class="btn btn-next" style="width: 100%; justify-content: center;" onclick="enterReviewMode()">
+        Explorar Boletos y Retroalimentación Detallada &#10140;
       </button>
     </div>
   </div>
@@ -868,18 +1010,82 @@
     let userAnswers = {};
     let secondsElapsed = 0;
     let timerInterval = null;
-    let examFinished = false;
+    let isExamFinished = false;
+    let reviewSelectedQIndex = 0;
 
     function initExam() {
       currentIndex = 0;
       userAnswers = {};
-      examFinished = false;
-      document.getElementById("activeExamSection").style.display = "block";
-      document.getElementById("reviewContainer").style.display = "none";
+      isExamFinished = false;
+      reviewSelectedQIndex = 0;
+
       document.getElementById("resultModal").style.display = "none";
-      
+      document.getElementById("feedbackContainer").style.display = "none";
+      document.getElementById("actionsBar").style.display = "flex";
+      document.getElementById("ticketHeaderStatus").innerText = "En Curso";
+      document.getElementById("ticketHeaderStatus").style.color = "var(--primary-teal)";
+
+      // Reset Legend
+      document.getElementById("ticketLegend").innerHTML = `
+        <div class="legend-item">
+          <div class="legend-bullet" style="background: var(--primary-teal);"></div>
+          <span>Pregunta Activa</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-bullet" style="background: #38bdf8;"></div>
+          <span>Resuelta</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-bullet" style="background: rgba(255,255,255,0.2);"></div>
+          <span>Pendiente</span>
+        </div>
+      `;
+
+      renderTickets();
       startTimer();
       renderCurrentQuestion();
+    }
+
+    function renderTickets() {
+      const grid = document.getElementById("ticketGrid");
+      grid.innerHTML = "";
+
+      questionsData.forEach((q, idx) => {
+        const ticket = document.createElement("div");
+        ticket.className = "cinema-ticket";
+        ticket.id = `ticket_${idx}`;
+
+        const isAnswered = !!userAnswers[q.id];
+        const isCurrent = idx === currentIndex && !isExamFinished;
+
+        if (isExamFinished) {
+          const isCorrect = userAnswers[q.id] === q.correct;
+          if (isCorrect) {
+            ticket.classList.add("ticket-correct");
+          } else {
+            ticket.classList.add("ticket-incorrect");
+          }
+
+          if (idx === reviewSelectedQIndex) {
+            ticket.classList.add("ticket-active-review");
+          }
+
+          ticket.onclick = () => selectReviewQuestion(idx);
+        } else {
+          if (isCurrent) {
+            ticket.classList.add("current");
+          } else if (isAnswered) {
+            ticket.classList.add("answered");
+          }
+        }
+
+        ticket.innerHTML = `
+          <span class="ticket-num">${String(idx + 1).padStart(2, '0')}</span>
+          <div class="ticket-status-dot"></div>
+        `;
+
+        grid.appendChild(ticket);
+      });
     }
 
     function startTimer() {
@@ -898,19 +1104,21 @@
       const qNumFormatted = String(currentIndex + 1).padStart(2, '0');
       const pendingCount = 20 - (currentIndex + 1);
 
-      // Meta Bar Updates
-      document.getElementById("currentQDisplay").innerText = `Pregunta ${qNumFormatted} / 20`;
-      document.getElementById("pendingDisplay").innerText = pendingCount === 0 ? "¡Última Pregunta!" : `${pendingCount} por resolver`;
-      
+      // Top Stats
+      document.getElementById("statActiveQ").innerText = `${qNumFormatted} / 20`;
+      document.getElementById("statPending").innerText = pendingCount === 0 ? "¡Última Pregunta!" : `${pendingCount} pendientes`;
+
       // Progress Bar
       const pct = ((currentIndex + 1) / 20) * 100;
       document.getElementById("progressBar").style.width = `${pct}%`;
 
-      // Card Updates
+      // Card Content
       document.getElementById("cardBadge").innerText = `PREGUNTA ${qNumFormatted} / 20 (Valor: 1.00 Pto)`;
+      document.getElementById("cardNotice").style.display = "flex";
+      document.getElementById("cardNotice").innerHTML = "&#9888; Avance secuencial definitivo (sin retroceso)";
       document.getElementById("cardQuestionText").innerText = q.question;
 
-      // Options Rendering
+      // Options
       const optionsContainer = document.getElementById("cardOptionsList");
       optionsContainer.innerHTML = "";
 
@@ -936,19 +1144,20 @@
         btnNext.innerHTML = "Siguiente Pregunta &#10140;";
       }
 
-      // Re-trigger animation
-      const card = document.getElementById("currentCard");
+      renderTickets();
+
+      // Animation
+      const card = document.getElementById("questionCard");
       card.style.animation = "none";
       void card.offsetWidth;
       card.style.animation = "slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
     }
 
     function selectOption(selectedKey) {
-      if (examFinished) return;
+      if (isExamFinished) return;
       const q = questionsData[currentIndex];
       userAnswers[q.id] = selectedKey;
 
-      // Update Radio and Label Classes
       q.options.forEach(opt => {
         const lbl = document.getElementById(`optLabel_${opt.key}`);
         const rad = document.getElementById(`radio_${opt.key}`);
@@ -961,21 +1170,20 @@
         }
       });
 
-      // Enable Next Button
       document.getElementById("btnNext").disabled = false;
     }
 
     function handleNextQuestion() {
       const q = questionsData[currentIndex];
       if (!userAnswers[q.id]) {
-        alert("Por favor, seleccione una alternativa para continuar.");
+        alert("Seleccione una opción para avanzar.");
         return;
       }
 
       if (currentIndex < 19) {
         currentIndex++;
         renderCurrentQuestion();
-        window.scrollTo({ top: 120, behavior: 'smooth' });
+        window.scrollTo({ top: 100, behavior: 'smooth' });
       } else {
         finishAndGradeExam();
       }
@@ -983,7 +1191,7 @@
 
     function finishAndGradeExam() {
       clearInterval(timerInterval);
-      examFinished = true;
+      isExamFinished = true;
 
       let correctTotal = 0;
       questionsData.forEach(q => {
@@ -992,11 +1200,10 @@
         }
       });
 
-      // Vigesimal Calculation
       const vigesimalScore = (correctTotal * 1.0).toFixed(1);
       const percentage = ((correctTotal / 20) * 100).toFixed(0);
       const awsScore = Math.round(100 + (correctTotal / 20) * 900);
-      const isPassed = correctTotal >= 14; // >= 14/20 = 70% (Equiv 700/1000)
+      const isPassed = correctTotal >= 14;
 
       // Update Modal
       document.getElementById("scoreVigesimal").innerText = vigesimalScore;
@@ -1014,75 +1221,138 @@
         scoreCircle.style.borderColor = "var(--primary-green)";
         scoreCircle.style.boxShadow = "0 0 35px rgba(46, 204, 113, 0.4)";
         document.getElementById("scoreVigesimal").style.color = "var(--primary-green)";
-        resultMsg.innerHTML = `¡Excelente trabajo! Has obtenido <b>${vigesimalScore} / 20.0 Puntos</b>, superando la nota mínima aprobatoria (<b>14.0 / 20</b>). Demuestras un dominio sólido de los conceptos de la nube del examen AWS CLF-C02.`;
+        resultMsg.innerHTML = `¡Excelente desempeño! Has obtenido <b>${vigesimalScore} / 20.0 Puntos</b> (${percentage}%), superando la nota mínima aprobatoria (<b>14.0 / 20</b>).`;
       } else {
         statusTag.className = "status-tag status-failed";
         statusTag.innerText = "NO APROBADO";
         scoreCircle.style.borderColor = "var(--danger-red)";
         scoreCircle.style.boxShadow = "0 0 35px rgba(231, 29, 54, 0.4)";
         document.getElementById("scoreVigesimal").style.color = "var(--danger-red)";
-        resultMsg.innerHTML = `La nota obtenida es <b>${vigesimalScore} / 20.0 Puntos</b>, por debajo del umbral aprobatorio de <b>14.0 / 20 (70% - 700 pts)</b>. Revisa a continuación las justificaciones técnicas para consolidar tu aprendizaje.`;
+        resultMsg.innerHTML = `La nota obtenida es <b>${vigesimalScore} / 20.0 Puntos</b> (${percentage}%), por debajo del umbral mínimo de aprobación de <b>14.0 / 20</b>.`;
       }
 
       document.getElementById("resultModal").style.display = "flex";
     }
 
-    function showReviewView() {
+    function enterReviewMode() {
       document.getElementById("resultModal").style.display = "none";
-      document.getElementById("activeExamSection").style.display = "none";
       
-      const reviewContainer = document.getElementById("reviewContainer");
-      const reviewList = document.getElementById("reviewList");
-      reviewList.innerHTML = "";
+      document.getElementById("ticketHeaderStatus").innerText = "Modo Revisión";
+      document.getElementById("ticketHeaderStatus").style.color = "var(--accent-orange)";
 
-      questionsData.forEach((q, idx) => {
-        const userChoice = userAnswers[q.id];
-        const isCorrect = userChoice === q.correct;
-        const qNumFormatted = String(idx + 1).padStart(2, '0');
+      // Update Legend for Review Mode
+      document.getElementById("ticketLegend").innerHTML = `
+        <div class="legend-item">
+          <div class="legend-bullet" style="background: var(--primary-green);"></div>
+          <span>Respuesta Correcta (+1.0)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-bullet" style="background: var(--danger-red);"></div>
+          <span>Respuesta Incorrecta (0.0)</span>
+        </div>
+        <div style="font-size: 0.7rem; color: var(--primary-teal); margin-top: 0.25rem;">
+          &#128073; Haz clic en cualquier boleto para ver su retroalimentación.
+        </div>
+      `;
 
-        const card = document.createElement("div");
-        card.className = `review-card ${isCorrect ? 'correct-card' : 'incorrect-card'}`;
+      // Top Stats in Review Mode
+      let correctTotal = 0;
+      questionsData.forEach(q => { if (userAnswers[q.id] === q.correct) correctTotal++; });
+      document.getElementById("statActiveQ").innerText = "Revisión";
+      document.getElementById("statPending").innerText = `${correctTotal} / 20 Aciertos`;
+      document.getElementById("statPending").style.color = correctTotal >= 14 ? "var(--primary-green)" : "var(--danger-red)";
 
-        let optionsHtml = q.options.map(opt => {
-          let optStyle = "";
-          let extraTag = "";
-          if (opt.key === q.correct) {
-            optStyle = "border-color: var(--correct-border); background: var(--correct-bg); font-weight: 600;";
-            extraTag = " <span style='color: var(--primary-green); font-weight: 700;'>[RESPUESTA CORRECTA OFICIAL]</span>";
-          } else if (opt.key === userChoice && !isCorrect) {
-            optStyle = "border-color: var(--incorrect-border); background: var(--incorrect-bg);";
-            extraTag = " <span style='color: var(--danger-red); font-weight: 700;'>[TU SELECCIÓN]</span>";
-          }
-          return `
-            <div style="padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.4rem; ${optStyle}">
-              <b>${opt.key})</b> ${opt.text} ${extraTag}
-            </div>
-          `;
-        }).join("");
+      // Replace Actions Bar with Restart Button
+      const actionsBar = document.getElementById("actionsBar");
+      actionsBar.innerHTML = `
+        <button type="button" class="btn btn-next" onclick="restartExam()" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);">
+          &#8635; Realizar Nuevo Intento
+        </button>
+      `;
 
-        card.innerHTML = `
-          <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-            <span class="q-badge">PREGUNTA ${qNumFormatted} / 20</span>
-            <span style="font-weight: 700; color: ${isCorrect ? 'var(--primary-green)' : 'var(--danger-red)'};">
-              ${isCorrect ? '&#10004; +1.00 Pto (Correcto)' : '&#10008; 0.00 Ptos (Incorrecto)'}
-            </span>
-          </div>
-          <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.5;">${q.question}</div>
-          <div style="margin-bottom: 1rem;">${optionsHtml}</div>
-          <div class="feedback-box ${isCorrect ? 'correct' : 'incorrect'}">
-            <div><b>Justificación Técnica:</b> ${q.explanation}</div>
-            <div class="feedback-apa">Fuente Primaria Oficial: ${q.apa}</div>
+      selectReviewQuestion(0);
+    }
+
+    function selectReviewQuestion(idx) {
+      reviewSelectedQIndex = idx;
+      const q = questionsData[idx];
+      const qNumFormatted = String(idx + 1).padStart(2, '0');
+      const userChoice = userAnswers[q.id];
+      const isCorrect = userChoice === q.correct;
+
+      // Card Header
+      document.getElementById("cardBadge").innerText = `REVISIÓN: PREGUNTA ${qNumFormatted} / 20`;
+      const cardNotice = document.getElementById("cardNotice");
+      cardNotice.style.display = "flex";
+      if (isCorrect) {
+        cardNotice.innerHTML = `<span style="color: var(--primary-green); font-weight: 700;">&#10004; Acierto (+1.00 Pto)</span>`;
+      } else {
+        cardNotice.innerHTML = `<span style="color: var(--danger-red); font-weight: 700;">&#10008; Incorrecto (0.00 Ptos)</span>`;
+      }
+
+      document.getElementById("cardQuestionText").innerText = q.question;
+
+      // Options Rendering in Review Mode
+      const optionsContainer = document.getElementById("cardOptionsList");
+      optionsContainer.innerHTML = "";
+
+      q.options.forEach(opt => {
+        const isOfficialCorrect = opt.key === q.correct;
+        const isUserSelected = opt.key === userChoice;
+
+        let extraClass = "";
+        let extraTag = "";
+
+        if (isOfficialCorrect) {
+          extraClass = "selected";
+          extraTag = ` <span style="color: var(--primary-green); font-weight: 700; margin-left: auto;">[RESPUESTA CORRECTA]</span>`;
+        } else if (isUserSelected && !isCorrect) {
+          extraTag = ` <span style="color: var(--danger-red); font-weight: 700; margin-left: auto;">[TU SELECCIÓN]</span>`;
+        }
+
+        const label = document.createElement("div");
+        label.className = `option-label ${extraClass}`;
+        label.style.cursor = "default";
+        label.style.transform = "none";
+
+        if (isOfficialCorrect) {
+          label.style.borderColor = "var(--correct-border)";
+          label.style.background = "var(--correct-bg)";
+        } else if (isUserSelected && !isCorrect) {
+          label.style.borderColor = "var(--incorrect-border)";
+          label.style.background = "var(--incorrect-bg)";
+        }
+
+        label.innerHTML = `
+          <div style="font-size: 1.02rem; color: #fff; width: 100%; display: flex; align-items: center;">
+            <span><b>${opt.key})</b> ${opt.text}</span>
+            ${extraTag}
           </div>
         `;
-        reviewList.appendChild(card);
+        optionsContainer.appendChild(label);
       });
 
-      reviewContainer.style.display = "block";
-      window.scrollTo({ top: 150, behavior: 'smooth' });
+      // Feedback Box
+      const fbContainer = document.getElementById("feedbackContainer");
+      fbContainer.style.display = "block";
+      fbContainer.innerHTML = `
+        <div class="feedback-box ${isCorrect ? 'correct' : 'incorrect'}">
+          <div style="font-weight: 800; margin-bottom: 0.35rem;">
+            ${isCorrect ? '&#10004; Explicación Oficial:' : '&#10008; Retroalimentación de la Pregunta:'}
+          </div>
+          <div>${q.explanation}</div>
+          <div class="feedback-apa">Fuente Primaria Oficial: ${q.apa}</div>
+        </div>
+      `;
+
+      renderTickets();
+
+      // Scroll to card
+      window.scrollTo({ top: 100, behavior: 'smooth' });
     }
 
     function restartExam() {
-      if (confirm("¿Desea iniciar un nuevo intento de la evaluación?")) {
+      if (confirm("¿Deseas iniciar una nueva evaluación?")) {
         initExam();
       }
     }
