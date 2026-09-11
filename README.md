@@ -21,7 +21,7 @@ AWS CCP/
 │   ├── 07_Getting_Familiar_with_AWS_Console.md
 │   └── 08_AWS_Support_Plans_Comparison.md
 └── assets/
-    └── images/                           # Diagramas arquitectónicos generados (estilo Fortinet/line-art)
+    └── images/                           # Diagramas arquitectónicos generados 
 ```
 
 ---
@@ -42,11 +42,4 @@ AWS CCP/
 - **[07. Familiarización con la Consola de AWS](02%20CLOUD%20CONCEPTS/07_Getting_Familiar_with_AWS_Console.md):** Barra de navegación superior, **AWS CloudShell** (1 GB persistente), **AWS Trusted Advisor** y widgets del panel principal.
 - **[08. Comparativa de Planes de Soporte de AWS](02%20CLOUD%20CONCEPTS/08_AWS_Support_Plans_Comparison.md):** Matriz detallada entre *Basic*, *Developer*, *Business*, *Enterprise On-Ramp* y *Enterprise* (SLAs, asignación de TAM y precios).
 
----
 
-## 🏛️ Metodología y Fuentes
-Todas las guías están redactadas bajo estándares académicos y técnicos:
-- **Redacción:** Español formal en voz pasiva y tercera persona.
-- **Fuentes Primarias:** Documentación oficial de Amazon Web Services, libros blancos (*AWS Whitepapers*), guías de examen y estándares NIST.
-- **Normas de Citación:** Formato **APA 7.ª edición** `(Autor, año)` con citas textuales bilingües.
-- **Diagramación:** Esquemas técnicos vectoriales y de dibujo lineal minimalista.
