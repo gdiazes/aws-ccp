@@ -129,8 +129,8 @@
       align-items: start;
     }
 
-    /* Panel Izquierdo: Entradas de Cine (Tickets) */
-    .ticket-panel {
+    /* Panel Izquierdo: Cuadrícula de Preguntas */
+    .nav-panel {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
@@ -141,7 +141,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
 
-    .ticket-panel-title {
+    .nav-panel-title {
       font-size: 0.85rem;
       text-transform: uppercase;
       font-weight: 800;
@@ -155,19 +155,19 @@
       padding-bottom: 0.5rem;
     }
 
-    .ticket-grid {
+    .q-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0.6rem;
       margin-bottom: 1rem;
     }
 
-    /* Ticket Estilo Entrada de Cine */
-    .cinema-ticket {
+    /* Insignia de Pregunta */
+    .q-item {
       position: relative;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
       padding: 0.65rem 0.2rem;
       text-align: center;
       font-family: 'JetBrains Mono', monospace;
@@ -183,12 +183,12 @@
       justify-content: center;
     }
 
-    .cinema-ticket .ticket-num {
+    .q-item .q-item-num {
       font-size: 0.95rem;
       line-height: 1;
     }
 
-    .cinema-ticket .ticket-status-dot {
+    .q-item .q-item-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
@@ -197,58 +197,58 @@
       transition: all 0.25s ease;
     }
 
-    /* Estados de los Boletos durante el Examen */
-    .cinema-ticket.current {
+    /* Estados de Preguntas durante el Examen */
+    .q-item.current {
       background: rgba(46, 196, 182, 0.18);
       border: 1px solid var(--primary-teal);
       color: #ffffff;
       box-shadow: 0 0 12px rgba(46, 196, 182, 0.5);
       transform: scale(1.05);
     }
-    .cinema-ticket.current .ticket-status-dot {
+    .q-item.current .q-item-dot {
       background: var(--primary-teal);
       box-shadow: 0 0 8px var(--primary-teal);
     }
 
-    .cinema-ticket.answered {
+    .q-item.answered {
       background: rgba(56, 189, 248, 0.15);
       border: 1px solid rgba(56, 189, 248, 0.5);
       color: #38bdf8;
     }
-    .cinema-ticket.answered .ticket-status-dot {
+    .q-item.answered .q-item-dot {
       background: #38bdf8;
     }
 
-    /* Estados de los Boletos Post-Examen (Finalizado) */
-    .cinema-ticket.ticket-correct {
+    /* Estados de Preguntas Post-Examen (Revisión) */
+    .q-item.q-correct {
       background: rgba(46, 204, 113, 0.2) !important;
       border: 1px solid var(--primary-green) !important;
       color: #ffffff !important;
       cursor: pointer !important;
     }
-    .cinema-ticket.ticket-correct .ticket-status-dot {
+    .q-item.q-correct .q-item-dot {
       background: var(--primary-green) !important;
       box-shadow: 0 0 8px var(--primary-green);
     }
 
-    .cinema-ticket.ticket-incorrect {
+    .q-item.q-incorrect {
       background: rgba(231, 29, 54, 0.2) !important;
       border: 1px solid var(--danger-red) !important;
       color: #ffffff !important;
       cursor: pointer !important;
     }
-    .cinema-ticket.ticket-incorrect .ticket-status-dot {
+    .q-item.q-incorrect .q-item-dot {
       background: var(--danger-red) !important;
       box-shadow: 0 0 8px var(--danger-red);
     }
 
-    .cinema-ticket.ticket-active-review {
+    .q-item.q-active-review {
       box-shadow: 0 0 18px #ffffff !important;
       border-width: 2px !important;
       transform: scale(1.12);
     }
 
-    .ticket-legend {
+    .nav-legend {
       font-size: 0.72rem;
       color: var(--text-muted);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -598,10 +598,10 @@
       .layout-grid {
         grid-template-columns: 1fr;
       }
-      .ticket-panel {
+      .nav-panel {
         position: static;
       }
-      .ticket-grid {
+      .q-grid {
         grid-template-columns: repeat(10, 1fr);
       }
     }
@@ -610,7 +610,7 @@
       .top-stats-bar {
         grid-template-columns: repeat(2, 1fr);
       }
-      .ticket-grid {
+      .q-grid {
         grid-template-columns: repeat(5, 1fr);
       }
       .actions-bar {
@@ -628,8 +628,8 @@
   <div class="main-wrapper">
     <header>
       <span class="badge">AWS Certified Cloud Practitioner (CLF-C02)</span>
-      <h1>Simulador Modular Interactivo</h1>
-      <p class="subtitle">Módulo 02: Conceptos de la Nube • Panel de Boletos (Entradas) • Escala Vigesimal (0-20 Puntos)</p>
+      <h1>Simulador de Examen Modular</h1>
+      <p class="subtitle">Módulo 02: Conceptos de la Nube • Panel de Preguntas • Escala Vigesimal (0 a 20 Puntos)</p>
     </header>
 
     <div class="top-stats-bar">
@@ -652,23 +652,23 @@
     </div>
 
     <div class="layout-grid">
-      <!-- Columna Izquierda: Entradas de Cine (Tickets) -->
-      <aside class="ticket-panel">
-        <div class="ticket-panel-title">
-          <span>Boletos de Preguntas</span>
-          <span id="ticketHeaderStatus" style="font-size: 0.75rem; color: var(--primary-teal);">En Curso</span>
+      <!-- Columna Izquierda: Panel de Preguntas (Navegador) -->
+      <aside class="nav-panel">
+        <div class="nav-panel-title">
+          <span>Panel de Preguntas</span>
+          <span id="navHeaderStatus" style="font-size: 0.75rem; color: var(--primary-teal);">En Curso</span>
         </div>
 
-        <div class="ticket-grid" id="ticketGrid"></div>
+        <div class="q-grid" id="qGrid"></div>
 
-        <div class="ticket-legend" id="ticketLegend">
+        <div class="nav-legend" id="navLegend">
           <div class="legend-item">
             <div class="legend-bullet" style="background: var(--primary-teal);"></div>
             <span>Pregunta Activa</span>
           </div>
           <div class="legend-item">
             <div class="legend-bullet" style="background: #38bdf8;"></div>
-            <span>Resuelta</span>
+            <span>Respondida</span>
           </div>
           <div class="legend-item">
             <div class="legend-bullet" style="background: rgba(255,255,255,0.2);"></div>
@@ -737,7 +737,7 @@
       <p id="resultMsg" style="line-height: 1.6; margin-bottom: 2rem; color: #e2e8f0; font-size: 0.98rem;"></p>
 
       <button class="btn btn-next" style="width: 100%; justify-content: center;" onclick="enterReviewMode()">
-        Explorar Boletos y Retroalimentación Detallada &#10140;
+        Explorar Preguntas y Retroalimentación Detallada &#10140;
       </button>
     </div>
   </div>
@@ -1022,18 +1022,18 @@
       document.getElementById("resultModal").style.display = "none";
       document.getElementById("feedbackContainer").style.display = "none";
       document.getElementById("actionsBar").style.display = "flex";
-      document.getElementById("ticketHeaderStatus").innerText = "En Curso";
-      document.getElementById("ticketHeaderStatus").style.color = "var(--primary-teal)";
+      document.getElementById("navHeaderStatus").innerText = "En Curso";
+      document.getElementById("navHeaderStatus").style.color = "var(--primary-teal)";
 
       // Reset Legend
-      document.getElementById("ticketLegend").innerHTML = `
+      document.getElementById("navLegend").innerHTML = `
         <div class="legend-item">
           <div class="legend-bullet" style="background: var(--primary-teal);"></div>
           <span>Pregunta Activa</span>
         </div>
         <div class="legend-item">
           <div class="legend-bullet" style="background: #38bdf8;"></div>
-          <span>Resuelta</span>
+          <span>Respondida</span>
         </div>
         <div class="legend-item">
           <div class="legend-bullet" style="background: rgba(255,255,255,0.2);"></div>
@@ -1041,19 +1041,19 @@
         </div>
       `;
 
-      renderTickets();
+      renderQuestionNav();
       startTimer();
       renderCurrentQuestion();
     }
 
-    function renderTickets() {
-      const grid = document.getElementById("ticketGrid");
+    function renderQuestionNav() {
+      const grid = document.getElementById("qGrid");
       grid.innerHTML = "";
 
       questionsData.forEach((q, idx) => {
-        const ticket = document.createElement("div");
-        ticket.className = "cinema-ticket";
-        ticket.id = `ticket_${idx}`;
+        const item = document.createElement("div");
+        item.className = "q-item";
+        item.id = `qItem_${idx}`;
 
         const isAnswered = !!userAnswers[q.id];
         const isCurrent = idx === currentIndex && !isExamFinished;
@@ -1061,30 +1061,30 @@
         if (isExamFinished) {
           const isCorrect = userAnswers[q.id] === q.correct;
           if (isCorrect) {
-            ticket.classList.add("ticket-correct");
+            item.classList.add("q-correct");
           } else {
-            ticket.classList.add("ticket-incorrect");
+            item.classList.add("q-incorrect");
           }
 
           if (idx === reviewSelectedQIndex) {
-            ticket.classList.add("ticket-active-review");
+            item.classList.add("q-active-review");
           }
 
-          ticket.onclick = () => selectReviewQuestion(idx);
+          item.onclick = () => selectReviewQuestion(idx);
         } else {
           if (isCurrent) {
-            ticket.classList.add("current");
+            item.classList.add("current");
           } else if (isAnswered) {
-            ticket.classList.add("answered");
+            item.classList.add("answered");
           }
         }
 
-        ticket.innerHTML = `
-          <span class="ticket-num">${String(idx + 1).padStart(2, '0')}</span>
-          <div class="ticket-status-dot"></div>
+        item.innerHTML = `
+          <span class="q-item-num">${String(idx + 1).padStart(2, '0')}</span>
+          <div class="q-item-dot"></div>
         `;
 
-        grid.appendChild(ticket);
+        grid.appendChild(item);
       });
     }
 
@@ -1144,7 +1144,7 @@
         btnNext.innerHTML = "Siguiente Pregunta &#10140;";
       }
 
-      renderTickets();
+      renderQuestionNav();
 
       // Animation
       const card = document.getElementById("questionCard");
@@ -1237,11 +1237,11 @@
     function enterReviewMode() {
       document.getElementById("resultModal").style.display = "none";
       
-      document.getElementById("ticketHeaderStatus").innerText = "Modo Revisión";
-      document.getElementById("ticketHeaderStatus").style.color = "var(--accent-orange)";
+      document.getElementById("navHeaderStatus").innerText = "Modo Revisión";
+      document.getElementById("navHeaderStatus").style.color = "var(--accent-orange)";
 
       // Update Legend for Review Mode
-      document.getElementById("ticketLegend").innerHTML = `
+      document.getElementById("navLegend").innerHTML = `
         <div class="legend-item">
           <div class="legend-bullet" style="background: var(--primary-green);"></div>
           <span>Respuesta Correcta (+1.0)</span>
@@ -1251,7 +1251,7 @@
           <span>Respuesta Incorrecta (0.0)</span>
         </div>
         <div style="font-size: 0.7rem; color: var(--primary-teal); margin-top: 0.25rem;">
-          &#128073; Haz clic en cualquier boleto para ver su retroalimentación.
+          &#128073; Haz clic en cualquier número de pregunta para ver su retroalimentación.
         </div>
       `;
 
@@ -1345,7 +1345,7 @@
         </div>
       `;
 
-      renderTickets();
+      renderQuestionNav();
 
       // Scroll to card
       window.scrollTo({ top: 100, behavior: 'smooth' });
