@@ -10,3 +10,6 @@ Desktop.ini
 # Logs y temporales
 *.log
 *.tmp
+
+# Customizaciones locales de agentes
+.agents/

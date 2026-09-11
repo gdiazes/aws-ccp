@@ -8,9 +8,6 @@ Este repositorio contiene las **guías técnicas de estudio de referencia**, esq
 
 ```text
 AWS CCP/
-├── .agents/
-│   └── skills/
-│       └── aws-ccp-technical-guide/      # Skill estandarizado de conversión técnica
 ├── 01 INTRODUCTION/
 │   ├── 00_Introduction_Overview_of_the_Course.md
 │   └── 01_Overview_of_the_Exam.md
