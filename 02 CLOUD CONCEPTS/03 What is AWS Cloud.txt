@@ -1,0 +1,37 @@
+Hello everyone and welcome back. In this module, we will explore the AWS Cloud in the ever evolving landscape
+of cloud computing Amazon web services. That is AWS stands tall as the world's most comprehensive and widely adopted cloud platform. This technological powerhouse has earned the trust
+of millions of customers globally serving as the backbone of their infrastructure and applications. Organizations of all sizes and types turn to AWS not just
+to meet their computing needs, but to fundamentally transform the way they operate. AWS is synonymous with innovation, agility, and unmatched service delivery.
+It operates on the principle of on demand technology services accessible via the internet, coupled with the pay as you go pricing model. This means organizations can build
+and run virtually any application without the burden of upfront cost or ongoing commitments. The financial flexibility afforded by AWS ensures that businesses pay only for the resources they consume,
+making it a cost effective solution for diverse computing needs. Let's understand the history of AWS briefly. The AWS story began in the early two thousands when
+amazon.com led by visionary entrepreneur, Jeff Bezos faced the challenge of managing its own IT infrastructure. The vision was to leverage the robust technology
+infrastructure Amazon had built for its e-commerce operations and make it available as a service to external businesses. This marked the birth of AWS
+with the official launch taking place in 2006. AWS started with a handful of foundational services that would later become the building blocks of cloud computing.
+Amazon's Simple Q Service, SQS and Amazon Simple Storage Service S3 were among the pioneering services introduced, offering scalable and reliable solutions for messaging and storage.
+It began with its initial infrastructure in the us. The first region established by AWS was the US East region. That is Northern Virginia region. Since then, it has become a global enterprise providing
+cloud computing services to the companies across the globe. Let's take an overview of the global infrastructure of the AWS Cloud. At the core of AWS lies a robust
+and secure infrastructure that forms the foundations for its unparalleled performance and reliability. AWS spans the globe with an expanding network of regions each comprising multiple availability zones.
+These zones are not only physically separated, but are also interconnected by low latency, high throughput, and highly redundant networking. This unique architecture makes it easy to design
+and operate applications that are scalable, fault tolerant, and highly available. It is also very secure. AWS's commitment to security ensures that users can build
+and deploy applications with confidence. Knowing that AWS adheres to the highest industry standards, The services are the backbone of any cloud platform. One of the defining features of AWS is the breadth
+and depth of its services, offering more services and features than any other cloud provider. AWS equips users with a rich toolkit to expedite the migration of existing applications
+to the cloud and unleash their creative potential. Let's have a look at the different types of services offered by AWS. Compute storage and databases are the
+foundational technologies. AWS provides a suite of foundational infrastructure technologies, including Amazon EC2, that is Elastic Compute Cloud.
+This is a scalable compute capacity offered by AWS in the cloud. Amazon S3 Simple storage service providing scalable object storage databases.
+AWS offers a wide variety of purpose-built databases cutting to different types of applications, including RD, BMSs, no SQL databases, et cetera. AWS doesn't just stop at the basics.
+It ventures into the cutting edge technologies. AWS enables users to leverage machine learning and artificial intelligence democratizing these technologies for developers and scientists.
+Amazon's SageMaker is one such service in this category. The revolutionizing the machine learning, it is a fully managed machine learning service empowers everyday developers and scientists
+to engage with machine learning. Without any previous experience, organizations can harness the power of data with AWS's data lakes
+and analytics services gaining actionable insights from vast dataset, AWS s facilitates the seamless integration and management of IO OT devices, opening up the possibilities for connected applications.
+Serverless computing with AWS Lambda, AWS Lambda represents a pioneering leap into serverless computing. Developers can run their code without provisioning
+or managing servers. Embracing a paradigm shift in application development, AWS is the backbone of success for numerous leading companies across diverse industries.
+Some notable examples include Netflix, Airbnb. The Global Hospitality platform utilizes AWS to handle massive data loads, ensuring efficient matchmaking between hosts and guests.
+Slack, nasa, jet Propulsion Laboratory AWS isn't just a cloud provider, it's an industry leader dominating the cloud computing market with unparalleled popularity and market share.
+According to Gartner's charts and industry statistics, AWS consistently outperforms its competitors maintaining a significant lead.
+Gartner's Magic Quadrant consistently positions AWS in the leaders quadrant reflecting its completeness of vision and ability to execute. AWS boosts the highest adoption rate
+among enterprises globally, with millions of customers trusting its services. When comparing market shares with other cloud vendors like Microsoft Azure
+and Google Cloud platform, AWS stands out As the front runner. Recent statistics indicate that the AWS holds a substantial percentage
+of the market share reinforcing its position as the preferred choice for business worldwide. Okay, so in this module, we understood that AWS is not just a cloud platform, it's an innovation,
+a WA cost-effective solution, and a testament to unparalleled operational excellence. As we navigate the AWS cloud ecosystem, we discover a realm where the possibilities are limitless
+and organizations can transform their most critical applications across every conceivable use case. That's all for this module. I'll see you in the next one.

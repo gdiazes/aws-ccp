@@ -1,0 +1,39 @@
+Hello everyone and welcome back. In this module, we will unravel the transformative potential of cloud computing
+and navigate the nuanced comparison with on premises solutions. Before we get into the comparing the on premises and cloud ways of doing it, it is crucial
+to understand the fundamental distinctions between on premises and cloud computing models. As the organizations grapple with the decision of where to host their IT infrastructure,
+each approach has its merits and choosing the right one depends on various factors such as scalability, cost, and maintenance requirements. So let's understand what do you mean
+by on premises computing? On premises computing refers to the traditional model where an organization owns and maintains its IT infrastructure within
+its physical premises. This includes servers, data storage, networking equipment, and other hardware and software components. In this model, the organization is entirely responsible
+for the purchase installation, configuration and maintenance of all its IT resources. Before the evolution of cloud organizations had no other way of computing than the on premises computing.
+Even though it sounds like a lot of work, there are some pros of on on-premises computing. Let's have a look at them. Control and security on-premises solution offer a high level
+of control over the entire infrastructure, allowing organizations to implement customized security majors to protect sensitive data customizations.
+Organizations can tailor their IT environment to specific needs, ensuring that software and hardware configurations align precisely with business requirement.
+And then we have compliance. Some industries with stringent regulatory requirements may prefer on-premises solutions as they provide more direct control over
+compliance measures. But as every coin has a flip side on premises computing has some significant disadvantages. Let's understand them. High initial cost,
+setting up an on premises infrastructure involves significant upfront expenses including hardware, software licenses, and skilled personal for installation and configuration.
+Then we have limited scalability. Scaling up or down can be slow and resource intensive process as it requires the purchase of additional hardware and the reallocation of resources.
+And then we have maintenance burden, ongoing maintenance tasks, including software updates, security patches and hardware updates fall entirely on the organization's IT team demanding
+significant time and effort. Indeed, it sounds like a lot of work. So now let's have a look at the cloud computing. Cloud computing, on the other hand, is a dynamic model
+where organizations access computing resources over the internet on a pay as you go basis. These resources can include virtual machines, storage databases, and a variety of services offered
+by cloud service providers. Let's have a look at the important benefits of cloud computing, scalability and flexibility. Cloud computing enables organizations
+to scale their resources up or down based on demand, providing flexibility to adapt to changing business needs. Cost efficiency. Cloud services often operate on a
+subscription or pay as you go model, eliminating the need for substantial upfront investments. This can result in cost savings, particularly for smaller businesses.
+It is very good managed services. Cloud providers handle infrastructure maintenance tasks, including updates, security patches and hardware upgrades,
+freeing organizations from their responsibilities. And finally, we have global accessibility. Cloud services are accessible from anywhere with an internet connection, fostering collaboration
+among geographically disposed teams. Despite of all of these wonderful benefits of cloud, some domains and types of business have few issues with cloud computing.
+Let's see, which one are those security concerns? While cloud providers implement robust security majors, some organizations may have concerns about the security of their data when stored offsite dependency
+of service providers, organizations relying on cloud services are dependent on the reliability and availability of their chosen providers. Downtime or service interruptions from the provider can
+impact business operations and the potential long-term cost. While cloud services can be cost effective in the short term, long-term usage may result in higher cumulative cost compared to on-premises solutions.
+Countless enterprises right from established corporations all the way to the agile startups have seamlessly integrated cloud services into their operations. Let's have a look at some of these companies
+that have embraced the cloud. Netflix a pioneer in cloud adoption. Netflix relies heavily on cloud computing services to deliver its streaming content globally.
+Then we have Airbnb. Airbnb utilizes cloud services to manage its massive database of property listings, user accounts, and transactions.
+Salesforce as a provider of cloud-based customer relationship management, CRM solutions, Salesforce has revolutionized how businesses manage customer interactions.
+And then nasa. NASA's Jet Propulsion Laboratory uses cloud computing to process and analyze vast amounts of data from space missions. The decision between on premises
+and cloud computing is not one size fits all and requires careful consideration for an organization's unique needs and priorities. Larger enterprises with specific security
+and compliance requirements may lean towards on premises solutions, while smaller businesses often find a flexibility and cost effectiveness of cloud computing more appealing. Ultimately, hybrid approaches, combining elements
+of both on premises and cloud solutions have become increasingly popular. This allows organizations to strike a balance, leveraging the control
+and security of on-premises solutions for some aspects while benefiting from the scalability and cost effectiveness of the cloud. For others, it's evident
+that the cloud's transformative potential goes beyond cost savings. It's a catalyst for innovation, efficiency, and global connectivity.
+The rising trend of hybrid solutions also underscore the adaptability of cloud computing, allowing organizations to harness the best of both worlds while on premises solutions have served
+as the bedrock of IT infrastructure. The future favors the agility and transformative power of cloud computing. Guiding organizations towards embracing the cloud is not
+just a technological shift, but a strategic move toward a brighter, more connected and innovation driven future. That's all for this module. I'll see you in the next one.

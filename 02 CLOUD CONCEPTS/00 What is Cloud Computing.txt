@@ -1,0 +1,21 @@
+Hello everyone and welcome back. In this module, we will explore the exciting world of cloud computing.
+Today we will learn about this revolutionary technology that's transforming the way businesses across the globe operate. So what exactly is cloud computing?
+Cloud computing is a revolutionary approach to it. Resource delivery facilitated through the internet and characterized by pay as you go pricing. Unlike the traditional mode of acquiring, owning
+and maintaining a physical data centers and servers, cloud computing enables access to a spectrum of technology services, including computing, power, storage, and databases on a flexible
+as needed basis from the providers like Amazon Web Services, A-W-S-G-C-P Azure, and many more organizations across the diverse sectors, irrespective of size
+and type, are leveraging the cloud for multitude of use cases. These range from the essential functions like data backup, disaster recovery, email,
+and virtual desktops to more advanced applications, such as software development and testing, big data analytics and customer facing web applications. Notably, healthcare companies utilize the cloud
+to develop personalized treatments while financial services companies employ it for real-time, fraud detection and prevention. Video game developers leverage the cloud
+for efficiently delivering online games to a global audience. Cloud computing offers significant advantages to businesses, including increased agility, cost reduction,
+instance scalability, and the ability to deploy globally. Within minutes. With cloud services businesses gain rapid access to a diverse area of technologies, fostering faster innovation
+and the creation of a wide range of applications from basic infrastructure services like compute storage and databases to domains like the internet of things, machine learning and data analytics.
+Everything is moving onto the cloud. Why is that so? Well, one of the key reasons for moving to cloud is the ability to deploy the technology services swiftly,
+reducing the time from ID conception to implementation. Significantly. This agility allows for experimentation and the testing of new ideas, enabling business to differentiate customer experiences
+and transform their operations. For instance, integrating machine learning and artificial intelligence into applications become more feasible leading to personalized customer experiences
+and enhanced engagement. Cloud computing eliminates the need for substantial upfront investment in hardware, offering a shift from capital expenses
+to the variable expenses. Businesses pay only for the IT resources they consume, avoiding unnecessary cost associated with the unused capacity,
+and also maintaining them once you are done with them. Real time access to cloud resources allows For dynamic scaling. Businesses can adjust their capacity instantly in response
+to changing needs, so you can increase or decrease your resources as you need. Moreover, the cloud simplifies the process of expanding to new regions and deploying globally.
+For example, AWS provides a global infrastructure that enables users to deploy applications across multiple physical locations effortlessly.
+This geographical distribution reduces latency enhancing user experience regardless of the business's location size, or industry Cloud computing liberates it from the complexities of managing infrastructure
+and data centers, allowing a sharper focus on the core business priorities. So get ready to soar to new heights with cloud computing for which your business will definitely thank you,
