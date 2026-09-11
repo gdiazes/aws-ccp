@@ -1,4 +1,4 @@
-# Guía Técnica: Creación y Configuración de la Cuenta de Capa Gratuita de AWS (AWS Free Tier)
+﻿# Guía Técnica: Creación y Configuración de la Cuenta de Capa Gratuita de AWS (AWS Free Tier)
 
 ---
 
@@ -31,9 +31,9 @@ graph TD
 > **Traducción al español:**  
 > "La Capa Gratuita de AWS proporciona a los clientes la capacidad de explorar y probar los servicios de AWS sin costo hasta límites especificados para cada servicio. La Capa Gratuita consta de tres tipos diferentes de ofertas: siempre gratis, 12 meses gratis y pruebas a corto plazo."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Three side-by-side vertical pillar boxes labeled "Ofertas de AWS Free Tier". Pillar 1: "Siempre Gratis (Always Free)" with Lambda and DynamoDB icons. Pillar 2: "12 Meses Gratis" with EC2 (750h/mes) and S3 (5GB) icons. Pillar 3: "Pruebas a Corto Plazo (Trials)" with SageMaker and Redshift icons. Connect a central user wallet icon to all three pillars with horizontal dashed arrows labeled "Cero Coste Dentro de Límites". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Three side-by-side vertical pillar boxes labeled "Ofertas de AWS Free Tier". Pillar 1: "Siempre Gratis (Always Free)" with Lambda and DynamoDB icons. Pillar 2: "12 Meses Gratis" with EC2 (750h/mes) and S3 (5GB) icons. Pillar 3: "Pruebas a Corto Plazo (Trials)" with SageMaker and Redshift icons. Connect a central user wallet icon to all three pillars with horizontal dashed arrows labeled "Cero Coste Dentro de Límites". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -74,9 +74,9 @@ graph LR
 > **Traducción al español:**  
 > "La identidad del usuario raíz es la primera identidad creada cuando se configura una cuenta de AWS. Posee acceso completo a todos los servicios y recursos de AWS en la cuenta. Recomendamos encarecidamente que no utilice el usuario raíz para sus tareas diarias, ni siquiera para las administrativas. En su lugar, adhiérase a la mejor práctica de utilizar el usuario raíz únicamente para crear su primer usuario administrador de IAM y luego resguarde bajo llave las credenciales del usuario raíz."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A security workflow diagram. Left block: A lockbox container labeled "Usuario Raíz (Root User)" with an MFA shield icon and a warning label "Uso Exclusivo: Tareas Iniciales y Resguardo Seguro". Right block: A user container labeled "Usuario Administrador IAM" with sub-blocks "Operaciones Diarias", "Despliegue de Infraestructura", and "Monitoreo". Solid arrow connecting root user creating the IAM administrator. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A security workflow diagram. Left block: A lockbox container labeled "Usuario Raíz (Root User)" with an MFA shield icon and a warning label "Uso Exclusivo: Tareas Iniciales y Resguardo Seguro". Right block: A user container labeled "Usuario Administrador IAM" with sub-blocks "Operaciones Diarias", "Despliegue de Infraestructura", and "Monitoreo". Solid arrow connecting root user creating the IAM administrator. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

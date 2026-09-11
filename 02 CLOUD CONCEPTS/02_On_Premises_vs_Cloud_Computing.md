@@ -1,4 +1,4 @@
-# Guía Técnica: Comparativa entre Infraestructura On-Premises y Computación en la Nube
+﻿# Guía Técnica: Comparativa entre Infraestructura On-Premises y Computación en la Nube
 
 ---
 
@@ -14,9 +14,9 @@ Mientras que el esquema *On-premises* demanda la compra, custodia y administraci
 > **Traducción al español:**  
 > "Una aplicación basada en la nube se encuentra totalmente desplegada en la nube y todas sus partes se ejecutan en ella. Las aplicaciones en la nube han sido creadas en la nube o bien migradas desde una infraestructura existente para aprovechar los beneficios de la computación en la nube. Un despliegue híbrido es una forma de conectar la infraestructura y las aplicaciones entre los recursos basados en la nube y los recursos existentes que no se encuentran ubicados en la nube."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Side-by-side comparison diagram. Left side: A physical data center boundary labeled "Centro de Datos On-Premises (CapEx)" containing physical server racks, power generators, and cooling units. Right side: A cloud boundary labeled "AWS Cloud (OpEx)" containing virtual compute instances (EC2), auto-scaling groups, and multi-region storage (S3). Draw a comparison balance scale in the center showing cost and operational flexibility. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Side-by-side comparison diagram. Left side: A physical data center boundary labeled "Centro de Datos On-Premises (CapEx)" containing physical server racks, power generators, and cooling units. Right side: A cloud boundary labeled "AWS Cloud (OpEx)" containing virtual compute instances (EC2), auto-scaling groups, and multi-region storage (S3). Draw a comparison balance scale in the center showing cost and operational flexibility. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -32,9 +32,9 @@ Mientras que el esquema *On-premises* demanda la compra, custodia y administraci
 | **Alcance y Despliegue Geográfico** | Limitado al alcance físico de los centros de datos corporativos. | Despliegue global en cuestión de minutos cercano a los usuarios finales (AWS, 2021). |
 | **Gobernanza y Cumplimiento** | Control físico directo total sobre los activos y la residencia de datos. | Certificaciones internacionales de cumplimiento (SOC, ISO, HIPAA, PCI-DSS) gestionadas en AWS Artifact (AWS, 2023b). |
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A dual-path timeline comparing resource provisioning. Top path labeled "Aprovisionamiento Tradicional On-Premises (3 a 6 Meses)" showing sequential blocks: "Cotización Hardware", "Aprobación Financiera CapEx", "Envío Físico", "Instalación en Rack", "Configuración de Red". Bottom path labeled "Aprovisionamiento en AWS Cloud (Minutos)" showing a single block: "Llamada API / Consola AWS -> Instancia Lista". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A dual-path timeline comparing resource provisioning. Top path labeled "Aprovisionamiento Tradicional On-Premises (3 a 6 Meses)" showing sequential blocks: "Cotización Hardware", "Aprobación Financiera CapEx", "Envío Físico", "Instalación en Rack", "Configuración de Red". Bottom path labeled "Aprovisionamiento en AWS Cloud (Minutos)" showing a single block: "Llamada API / Consola AWS -> Instancia Lista". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -56,9 +56,9 @@ graph LR
 2. **Despliegue Híbrido (*Hybrid Deployment*):** Integra sistemas locales legados con recursos en la nube mediante conexiones dedicadas y seguras como **AWS Direct Connect**, **AWS Site-to-Site VPN** o extensiones locales como **AWS Outposts** y **AWS Storage Gateway** (AWS, 2021).
 3. **Nube Privada / On-Premises (*Private Cloud*):** Infraestructura virtualizada dedicada exclusivamente a una única organización dentro de su propio perímetro físico (Mell & Grance, 2011).
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A hybrid network topology. On the left, draw a rectangular container labeled "Red Corporativa On-Premises" with internal databases and private servers. In the center, draw TWO connection pipe links labeled "Enlace Dedicado (AWS Direct Connect)" and "Túnel Seguro (AWS Site-to-Site VPN)". On the right, draw a cloud container labeled "VPC en AWS Cloud" with public and private subnets, EC2 instances, and RDS databases. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A hybrid network topology. On the left, draw a rectangular container labeled "Red Corporativa On-Premises" with internal databases and private servers. In the center, draw TWO connection pipe links labeled "Enlace Dedicado (AWS Direct Connect)" and "Túnel Seguro (AWS Site-to-Site VPN)". On the right, draw a cloud container labeled "VPC en AWS Cloud" with public and private subnets, EC2 instances, and RDS databases. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

@@ -1,4 +1,4 @@
-# Guía Técnica: Descripción General del Examen AWS Certified Cloud Practitioner (CLF-C02)
+﻿# Guía Técnica: Descripción General del Examen AWS Certified Cloud Practitioner (CLF-C02)
 
 ---
 
@@ -14,9 +14,9 @@ El examen **AWS Certified Cloud Practitioner (CLF-C02)** valida la competencia t
 
 ![Hexágono de Competencias Clave Evaluadas](../assets/images/exam_core_competencies.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A central hexagon labeled "Examen AWS CLF-C02 (Puntaje Mínimo: 700/1000)". Radiating outward from the hexagon, draw SIX rounded rectangular nodes labeled: "1. Valor de la Nube", "2. Responsabilidad Compartida", "3. Prácticas de Seguridad", "4. Costos y Facturación", "5. Servicios Principales", and "6. Casos de Uso Comunes". Connect each node with clean solid lines. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A central hexagon labeled "Examen AWS CLF-C02 (Puntaje Mínimo: 700/1000)". Radiating outward from the hexagon, draw SIX rounded rectangular nodes labeled: "1. Valor de la Nube", "2. Responsabilidad Compartida", "3. Prácticas de Seguridad", "4. Costos y Facturación", "5. Servicios Principales", and "6. Casos de Uso Comunes". Connect each node with clean solid lines. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -41,9 +41,9 @@ El examen está concebido para perfiles de diversa índole profesional:
 
 ![Delimitación de Alcance In-Scope vs Out-of-Scope](../assets/images/in_scope_vs_out_scope.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Two adjacent rectangular zones. Left zone with solid green border labeled "Dentro del Alcance (In-Scope)" containing list icons labeled "Conceptos Cloud", "Seguridad Básica", "Facturación", "Servicios Principales". Right zone with dashed border labeled "Fuera del Alcance (Out-of-Scope)" containing crossed-out icons labeled "Codificación", "Troubleshooting Avanzado", "Diseño Arquitectónico Complejo". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Two adjacent rectangular zones. Left zone with solid green border labeled "Dentro del Alcance (In-Scope)" containing list icons labeled "Conceptos Cloud", "Seguridad Básica", "Facturación", "Servicios Principales". Right zone with dashed border labeled "Fuera del Alcance (Out-of-Scope)" containing crossed-out icons labeled "Codificación", "Troubleshooting Avanzado", "Diseño Arquitectónico Complejo". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -71,9 +71,9 @@ Conforme a los estándares oficiales de evaluación de AWS (2023), los parámetr
 
 ![Métricas y Flujo de Calificación del Examen CLF-C02](../assets/images/exam_scoring_flow.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A process flow chart labeled "Métricas del Examen CLF-C02". Box 1: "65 Preguntas Totales (90 Minutos)". Connecting arrows split into Box 2A: "50 Preguntas Calificadas" and Box 2B: "15 Preguntas Estadísticas No Calificadas". Both converge into Box 3: "Escala 100 - 1000 Puntos (Aprobación >= 700 Puntos)". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A process flow chart labeled "Métricas del Examen CLF-C02". Box 1: "65 Preguntas Totales (90 Minutos)". Connecting arrows split into Box 2A: "50 Preguntas Calificadas" and Box 2B: "15 Preguntas Estadísticas No Calificadas". Both converge into Box 3: "Escala 100 - 1000 Puntos (Aprobación >= 700 Puntos)". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -114,9 +114,9 @@ pie title Distribución Porcentual de Dominios (CLF-C02)
 
 ![Cuadrante de Distribución y Servicios de los 4 Dominios](../assets/images/clf_c02_domains_quadrant.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A large quadrant architecture diagram labeled "Dominios de Evaluación CLF-C02". Quadrant 1 (Top-Left): "Dominio 1: Conceptos Cloud (24%)". Quadrant 2 (Top-Right): "Dominio 2: Seguridad y Cumplimiento (30%)". Quadrant 3 (Bottom-Left): "Dominio 3: Tecnología y Servicios (34%)". Quadrant 4 (Bottom-Right): "Dominio 4: Facturación y Soporte (12%)". Each quadrant contains 3-4 internal service icons. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A large quadrant architecture diagram labeled "Dominios de Evaluación CLF-C02". Quadrant 1 (Top-Left): "Dominio 1: Conceptos Cloud (24%)". Quadrant 2 (Top-Right): "Dominio 2: Seguridad y Cumplimiento (30%)". Quadrant 3 (Bottom-Left): "Dominio 3: Tecnología y Servicios (34%)". Quadrant 4 (Bottom-Right): "Dominio 4: Facturación y Soporte (12%)". Each quadrant contains 3-4 internal service icons. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

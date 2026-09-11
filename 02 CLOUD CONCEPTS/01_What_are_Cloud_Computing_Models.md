@@ -1,4 +1,4 @@
-# Guía Técnica: Modelos de Servicios de Computación en la Nube (IaaS, PaaS, SaaS)
+﻿# Guía Técnica: Modelos de Servicios de Computación en la Nube (IaaS, PaaS, SaaS)
 
 ---
 
@@ -16,9 +16,9 @@ El Instituto Nacional de Estándares y Tecnología (NIST) y Amazon Web Services 
 
 ![Pirámide Estratificada de Modelos Cloud (IaaS, PaaS, SaaS)](../assets/images/cloud_models_pyramid.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A layered pyramid stack of cloud computing models. Bottom layer (Broadest base): "IaaS - Infraestructura como Servicio (Amazon EC2, VPC, EBS)". Middle layer: "PaaS - Plataforma como Servicio (AWS Elastic Beanstalk, Lambda, RDS)". Top layer (Apex): "SaaS - Software como Servicio (Amazon QuickSight, Aplicaciones Finales)". To the left, draw an arrow labeled "Mayor Control y Flexibilidad". To the right, draw an arrow labeled "Menor Carga de Mantenimiento". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A layered pyramid stack of cloud computing models. Bottom layer (Broadest base): "IaaS - Infraestructura como Servicio (Amazon EC2, VPC, EBS)". Middle layer: "PaaS - Plataforma como Servicio (AWS Elastic Beanstalk, Lambda, RDS)". Top layer (Apex): "SaaS - Software como Servicio (Amazon QuickSight, Aplicaciones Finales)". To the left, draw an arrow labeled "Mayor Control y Flexibilidad". To the right, draw an arrow labeled "Menor Carga de Mantenimiento". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -59,9 +59,9 @@ graph TD
 | **Almacenamiento Físico (*Storage*)** | Cliente | Proveedor | Proveedor | Proveedor |
 | **Redes Físicas (*Networking*)** | Cliente | Proveedor | Proveedor | Proveedor |
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Four vertical pillar columns comparing technology stacks: "On-Premises", "IaaS", "PaaS", and "SaaS". Each column contains stacked blocks from top to bottom: "Aplicaciones", "Datos", "Runtime", "Middleware", "Sistema Operativo", "Virtualización", "Servidores", "Almacenamiento", "Red". Visually color-code the blocks with dark green for "Administrado por el Cliente" and teal for "Administrado por AWS/Proveedor". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Four vertical pillar columns comparing technology stacks: "On-Premises", "IaaS", "PaaS", and "SaaS". Each column contains stacked blocks from top to bottom: "Aplicaciones", "Datos", "Runtime", "Middleware", "Sistema Operativo", "Virtualización", "Servidores", "Almacenamiento", "Red". Visually color-code the blocks with dark green for "Administrado por el Cliente" and teal for "Administrado por AWS/Proveedor". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -101,9 +101,9 @@ SaaS proporciona un producto de software completo que es operado y administrado 
 
 - **Ejemplos del sector y AWS:** Amazon QuickSight, AWS Management Console, Microsoft Office 365, Google Workspace, Salesforce (AWS, 2021).
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Three distinct architecture containers. Container 1 labeled "IaaS: Control Total de VM y Red (Amazon EC2 + VPC)". Container 2 labeled "PaaS: Despliegue de Código Sin Gestionar SO (AWS Elastic Beanstalk)". Container 3 labeled "SaaS: Aplicación Lista para Usuario Final (Amazon QuickSight / Dashboard Web)". Connect developer and business user icons to each corresponding container with clean arrows. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Three distinct architecture containers. Container 1 labeled "IaaS: Control Total de VM y Red (Amazon EC2 + VPC)". Container 2 labeled "PaaS: Despliegue de Código Sin Gestionar SO (AWS Elastic Beanstalk)". Container 3 labeled "SaaS: Aplicación Lista para Usuario Final (Amazon QuickSight / Dashboard Web)". Connect developer and business user icons to each corresponding container with clean arrows. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

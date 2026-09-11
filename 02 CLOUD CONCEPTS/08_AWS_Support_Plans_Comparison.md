@@ -1,4 +1,4 @@
-# Guía Técnica: Comparativa y Estructura de los Planes de Soporte de AWS (AWS Support Plans)
+﻿# Guía Técnica: Comparativa y Estructura de los Planes de Soporte de AWS (AWS Support Plans)
 
 ---
 
@@ -23,9 +23,9 @@ graph TD
 > **Traducción al español:**  
 > "AWS Support ofrece una gama de planes que proporcionan acceso a herramientas y experiencia técnica para respaldar el éxito y la salud operativa de sus soluciones de AWS. Todos los planes de soporte brindan acceso 24/7 a atención al cliente, documentación de AWS, informes técnicos (whitepapers) y foros de soporte. Para soporte técnico y capacidades adicionales, los clientes pueden elegir entre Developer, Business, Enterprise On-Ramp y Enterprise Support."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A horizontal tiered ladder showing the FIVE AWS Support Plans ascending from left to right: Step 1 "Basic ($0 - Pruebas y Sandbox)", Step 2 "Developer ($29/mes - Cargas No Críticas)", Step 3 "Business ($100/mes - Producción 24/7)", Step 4 "Enterprise On-Ramp ($5.500/mes - Asistencia Consultiva)", Step 5 "Enterprise ($15.000/mes - TAM Dedicado y SLA 15 min)". Connect each tier with directional escalation arrows. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A horizontal tiered ladder showing the FIVE AWS Support Plans ascending from left to right: Step 1 "Basic ($0 - Pruebas y Sandbox)", Step 2 "Developer ($29/mes - Cargas No Críticas)", Step 3 "Business ($100/mes - Producción 24/7)", Step 4 "Enterprise On-Ramp ($5.500/mes - Asistencia Consultiva)", Step 5 "Enterprise ($15.000/mes - TAM Dedicado y SLA 15 min)". Connect each tier with directional escalation arrows. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -75,9 +75,9 @@ graph TD
 > **Traducción al español:**  
 > "Enterprise Support proporciona a los clientes un servicio personalizado donde el punto de contacto principal es un Gerente Técnico de Cuenta (TAM). Además de tiempos de respuesta de 15 minutos para eventos de caída de sistemas críticos de negocio, Enterprise Support incluye revisiones arquitectónicas consultivas, revisiones de operaciones y acceso a programas proactivos."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A critical SLA escalation chart. Left column shows FOUR severity alarm icons labeled: "1. Consulta General (< 24h)", "2. Sistema Afectado (< 12h)", "3. Producción Caída (< 1h - Business)", "4. Misión Crítica Caída (< 15 min - Enterprise)". Right column shows a dedicated engineer badge labeled "TAM (Technical Account Manager)" communicating with the Enterprise customer terminal. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A critical SLA escalation chart. Left column shows FOUR severity alarm icons labeled: "1. Consulta General (< 24h)", "2. Sistema Afectado (< 12h)", "3. Producción Caída (< 1h - Business)", "4. Misión Crítica Caída (< 15 min - Enterprise)". Right column shows a dedicated engineer badge labeled "TAM (Technical Account Manager)" communicating with the Enterprise customer terminal. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

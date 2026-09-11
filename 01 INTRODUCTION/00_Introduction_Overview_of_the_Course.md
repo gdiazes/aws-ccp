@@ -1,4 +1,4 @@
-# Guía Técnica: Introducción y Visión General de la Certificación AWS Certified Cloud Practitioner (CLF-C02)
+﻿# Guía Técnica: Introducción y Visión General de la Certificación AWS Certified Cloud Practitioner (CLF-C02)
 
 ---
 
@@ -16,9 +16,9 @@ El propósito formal de esta certificación es validar una comprensión holísti
 
 ![Ecosistema de Roles y Certificación CLF-C02](../assets/images/clf_c02_roles_badge.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A central badge container labeled "Certificación AWS Certified Cloud Practitioner (CLF-C02)". Surrounding the badge, draw FOUR interconnected rectangular blocks representing foundational roles: "Gestión de Negocios", "Finanzas Cloud", "Ventas Técnicas", and "Ingeniería TI". Connect each block to the central badge with clean directional arrows. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A central badge container labeled "Certificación AWS Certified Cloud Practitioner (CLF-C02)". Surrounding the badge, draw FOUR interconnected rectangular blocks representing foundational roles: "Gestión de Negocios", "Finanzas Cloud", "Ventas Técnicas", and "Ingeniería TI". Connect each block to the central badge with clean directional arrows. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -33,9 +33,9 @@ Conforme a las especificaciones oficiales de AWS (2023), el examen ha sido estru
 
 ![Línea de Tiempo de Exposición y Preparación](../assets/images/timeline_exposure.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A horizontal timeline split into two stages labeled "0 a 6 Meses de Exposición". On the left side, draw a user icon labeled "Aspirante (Perfil Técnico / No Técnico)" connected to THREE milestone blocks labeled "Conceptos Básicos de Nube", "Gobernanza y Facturación", and "Seguridad Compartida". On the right side, draw a terminal block labeled "Aspirante Listo para Examen CLF-C02". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A horizontal timeline split into two stages labeled "0 a 6 Meses de Exposición". On the left side, draw a user icon labeled "Aspirante (Perfil Técnico / No Técnico)" connected to THREE milestone blocks labeled "Conceptos Básicos de Nube", "Gobernanza y Facturación", and "Seguridad Compartida". On the right side, draw a terminal block labeled "Aspirante Listo para Examen CLF-C02". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -55,9 +55,9 @@ A partir del **19 de septiembre de 2023**, AWS retiró formalmente la versión *
 
 ![Transición y Ponderación de Dominios CLF-C01 a CLF-C02](../assets/images/clf_c01_vs_c02_transition.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Two large comparison boxes side by side labeled "Versión Anterior: CLF-C01" (with 4 domain bars: 26%, 25%, 33%, 16%) and "Versión Actual: CLF-C02" (with 4 highlighted domain bars: 24%, 30%, 34%, 12%). Draw an arrow between them labeled "Transición 19 de Septiembre de 2023". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: Two large comparison boxes side by side labeled "Versión Anterior: CLF-C01" (with 4 domain bars: 26%, 25%, 33%, 16%) and "Versión Actual: CLF-C02" (with 4 highlighted domain bars: 24%, 30%, 34%, 12%). Draw an arrow between them labeled "Transición 19 de Septiembre de 2023". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -98,9 +98,9 @@ El marco de gestión de costos de AWS permite a las organizaciones optimizar su 
 
 ![Modelo de Responsabilidad Compartida de AWS](../assets/images/shared_responsibility_model.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A split architecture diagram showing the "Modelo de Responsabilidad Compartida de AWS". The top block labeled "Cliente: Seguridad EN la Nube" contains sub-blocks labeled "Datos de Clientes", "Gestión de Accesos (IAM)", "Firewalls y SO". The bottom block labeled "AWS: Seguridad DE la Nube" contains sub-blocks labeled "Cómputo, Almacenamiento, Bases de Datos" and "Centros de Datos Globales". Solid line separating both sections. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A split architecture diagram showing the "Modelo de Responsabilidad Compartida de AWS". The top block labeled "Cliente: Seguridad EN la Nube" contains sub-blocks labeled "Datos de Clientes", "Gestión de Accesos (IAM)", "Firewalls y SO". The bottom block labeled "AWS: Seguridad DE la Nube" contains sub-blocks labeled "Cómputo, Almacenamiento, Bases de Datos" and "Centros de Datos Globales". Solid line separating both sections. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -115,9 +115,9 @@ Para consolidar el aprendizaje técnico y asegurar el éxito en la evaluación, 
 
 ![Ruta de Preparación Oficial AWS](../assets/images/aws_preparation_pipeline.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A three-pillar learning pipeline labeled "Ruta de Preparación Oficial AWS". Pillar 1 labeled "Documentación y FAQs Oficiales" with document icons. Pillar 2 labeled "AWS Whitepapers y Marcos de Arquitectura" with book icons. Pillar 3 labeled "Laboratorios Prácticos y Simulación de Examen" with console and terminal icons. All three converge into a final target labeled "Aprobación Examen CLF-C02". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A three-pillar learning pipeline labeled "Ruta de Preparación Oficial AWS". Pillar 1 labeled "Documentación y FAQs Oficiales" with document icons. Pillar 2 labeled "AWS Whitepapers y Marcos de Arquitectura" with book icons. Pillar 3 labeled "Laboratorios Prácticos y Simulación de Examen" with console and terminal icons. All three converge into a final target labeled "Aprobación Examen CLF-C02". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

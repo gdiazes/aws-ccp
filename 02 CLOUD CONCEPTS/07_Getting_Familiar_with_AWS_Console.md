@@ -1,4 +1,4 @@
-# Guía Técnica: Navegación y Estructura de la Consola de Administración de AWS (AWS Management Console)
+﻿# Guía Técnica: Navegación y Estructura de la Consola de Administración de AWS (AWS Management Console)
 
 ---
 
@@ -14,9 +14,9 @@ Adicionalmente a la consola gráfica, AWS proporciona interfaces programáticas 
 > **Traducción al español:**  
 > "La Consola de Administración de AWS es una interfaz basada en web para acceder y administrar los servicios de Amazon Web Services. La página de Inicio de la Consola proporciona acceso a una colección creciente de widgets que muestran información importante sobre su entorno de AWS, permitiéndole acceder a servicios, consultar facturas, verificar el estado de sus recursos y personalizar su entorno de trabajo."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A wide architectural mockup of the "AWS Management Console Header & Navigation Bar". From left to right along the top bar: [AWS Logo / Home], [Selector de Servicios], [Caja de Búsqueda Global], [Icono AWS CloudShell], [Centro de Notificaciones], [Menú de Soporte], [Selector de Regiones (ej. us-east-1)], and [Menú de Cuenta & IAM]. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A wide architectural mockup of the "AWS Management Console Header & Navigation Bar". From left to right along the top bar: [AWS Logo / Home], [Selector de Servicios], [Caja de Búsqueda Global], [Icono AWS CloudShell], [Centro de Notificaciones], [Menú de Soporte], [Selector de Regiones (ej. us-east-1)], and [Menú de Cuenta & IAM]. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -68,9 +68,9 @@ La página principal de la consola (*Console Home*) permite organizar widgets di
 > **Traducción al español:**  
 > "AWS Trusted Advisor es una herramienta en línea que le proporciona orientación en tiempo real para ayudarle a aprovisionar sus recursos siguiendo las mejores prácticas de AWS. Las comprobaciones de Trusted Advisor ayudan a optimizar su infraestructura de AWS, aumentar la seguridad y el rendimiento, reducir sus costos generales y supervisar las cuotas de servicio."
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A dashboard grid showing the "Página de Inicio de la Consola de AWS (Widgets Dinámicos)". Widget 1 (Top-Left): "AWS Health Dashboard (Estado Operativo)". Widget 2 (Top-Right): "AWS Trusted Advisor (5 Pilares de Mejores Prácticas)". Widget 3 (Bottom-Left): "Resumen de Costos y Facturación (Gasto Mensual y Proyección)". Widget 4 (Bottom-Right): "Servicios Favoritos y Recientes (EC2, S3, RDS, VPC)". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A dashboard grid showing the "Página de Inicio de la Consola de AWS (Widgets Dinámicos)". Widget 1 (Top-Left): "AWS Health Dashboard (Estado Operativo)". Widget 2 (Top-Right): "AWS Trusted Advisor (5 Pilares de Mejores Prácticas)". Widget 3 (Bottom-Left): "Resumen de Costos y Facturación (Gasto Mensual y Proyección)". Widget 4 (Bottom-Right): "Servicios Favoritos y Recientes (EC2, S3, RDS, VPC)". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---

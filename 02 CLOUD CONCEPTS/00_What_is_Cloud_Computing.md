@@ -1,4 +1,4 @@
-# Guía Técnica: Fundamentos y Conceptos de la Computación en la Nube
+﻿# Guía Técnica: Fundamentos y Conceptos de la Computación en la Nube
 
 ---
 
@@ -18,9 +18,9 @@ En contraposición a la adquisición y mantenimiento tradicional de centros de d
 
 ![Visión General de la Nube de AWS](../assets/images/cloud_computing_overview.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A large central cloud boundary labeled "Nube de AWS (Entrega Bajo Demanda / Pay-as-you-go)". Inside the cloud boundary, draw FIVE component icons: a server rack labeled "Cómputo (EC2)", a storage cylinder labeled "Almacenamiento (S3)", a database block labeled "Bases de Datos (RDS)", a router icon labeled "Redes (VPC)", and an AI chip labeled "Analítica & ML". Below the cloud, draw THREE client terminal icons labeled "Empresas", "Startups", and "Sector Público" connected to the cloud via vertical internet lines. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A large central cloud boundary labeled "Nube de AWS (Entrega Bajo Demanda / Pay-as-you-go)". Inside the cloud boundary, draw FIVE component icons: a server rack labeled "Cómputo (EC2)", a storage cylinder labeled "Almacenamiento (S3)", a database block labeled "Bases de Datos (RDS)", a router icon labeled "Redes (VPC)", and an AI chip labeled "Analítica & ML". Below the cloud, draw THREE client terminal icons labeled "Empresas", "Startups", and "Sector Público" connected to the cloud via vertical internet lines. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -49,9 +49,9 @@ mindmap
 
 ![Las Seis Ventajas Cardinales de la Nube](../assets/images/six_advantages_cloud.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A grid of SIX rectangular architectural cards labeled: "1. CapEx a OpEx", "2. Economías de Escala", "3. Elasticidad sin Adivinar Capacidad", "4. Velocidad y Agilidad", "5. Cero Mantenimiento de Centros de Datos", "6. Despliegue Global en Minutos". Each card contains a descriptive technical icon. Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A grid of SIX rectangular architectural cards labeled: "1. CapEx a OpEx", "2. Economías de Escala", "3. Elasticidad sin Adivinar Capacidad", "4. Velocidad y Agilidad", "5. Cero Mantenimiento de Centros de Datos", "6. Despliegue Global en Minutos". Each card contains a descriptive technical icon. Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
@@ -70,9 +70,9 @@ El espectro de aplicación de los servicios en la nube abarca tanto requerimient
 
 ![Flujo de Arquitectura Empresarial y Casos de Uso](../assets/images/enterprise_cloud_workflow.jpg)
 
-> **Prompt de Diagrama Técnico (Estilo Fortinet Minimalista):**  
+> **Prompt de Diagrama Técnico:**  
 > ```text
-> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A horizontal enterprise workflow. On the left, draw an input block labeled "Fuentes de Datos & Usuarios Globales". In the center, draw a processing container labeled "Arquitectura en la Nube AWS" containing sub-blocks "Ingesta en Tiempo Real (Kinesis)", "Almacenamiento Seguro (S3)", "Procesamiento Serverless (Lambda)", and "Base de Datos NoSQL (DynamoDB)". On the right, draw TWO output blocks labeled "Analítica en Tiempo Real" and "Detección de Fraude / Resiliencia". Simple line art, Fortinet documentation style, minimalist, Spanish text labels --ar 16:9
+> Prompt: Hand-drawn technical network diagram, isolated on a transparent background (pure solid white for easy cutout), no whiteboard, no background elements. COLORING INSTRUCTION: Highlight ALL components with solid dark green and teal fill colors. Layout: A horizontal enterprise workflow. On the left, draw an input block labeled "Fuentes de Datos & Usuarios Globales". In the center, draw a processing container labeled "Arquitectura en la Nube AWS" containing sub-blocks "Ingesta en Tiempo Real (Kinesis)", "Almacenamiento Seguro (S3)", "Procesamiento Serverless (Lambda)", and "Base de Datos NoSQL (DynamoDB)". On the right, draw TWO output blocks labeled "Analítica en Tiempo Real" and "Detección de Fraude / Resiliencia". Simple line art, minimalist, Spanish text labels --ar 16:9
 > ```
 
 ---
