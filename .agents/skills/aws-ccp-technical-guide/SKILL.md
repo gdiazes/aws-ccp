@@ -76,15 +76,28 @@ Prompt: Hand-drawn technical network diagram, isolated on a transparent backgrou
 
 ---
 
-## 4. Flujo de Ejecución y Sincronización con GitHub
+## 4. Flujo de Ejecución, Procesamiento Incremental y Sincronización con GitHub
 
-1. **Lectura y Análisis:** Leer el archivo fuente `.txt` local (manteniendo el archivo `.txt` intacto).
-2. **Depuración de Intermediarios:** Filtrar saludos, referencias a instructores, menciones a portales de terceros y publicidad de cursos.
-3. **Investigación y Selección de Fuentes Primarias:** Mapear los conceptos técnicos a las publicaciones oficiales de AWS o estándares equivalentes.
-4. **Diseño y Ejecución de Prompts Arquitectónicos:** Generar las imágenes mediante el motor visual para cada sección.
-5. **Generación del Markdown (.md):** Crear la guía técnica formal incrustando las imágenes renderizadas y los bloques de prompt correspondientes.
-6. **Actualización del README y Estructura:** Actualizar el índice del repositorio `README.md` si se incorporan nuevos módulos.
-7. **Sincronización Automática con GitHub:**
-   - Ejecutar `git add .` (verificando que `.gitignore` excluya `.txt` y `.pdf`).
-   - Crear un commit descriptivo: `git commit -m "docs: actualización de guías técnicas y diagramas"`.
-   - Realizar el push a la rama principal: `git push origin main`.
+Al invocar la ejecución de este skill (o mediante el scheduler programado), se debe seguir rigurosamente este ciclo de tareas automatizadas:
+
+1. **Detección y Preservación de Archivos Fuente:**
+   - Escanear los directorios del curso (`01 INTRODUCTION`, `02 CLOUD CONCEPTS`, etc.) para identificar archivos `.txt` que no posean aún su correspondiente guía `.md`.
+   - **Regla innegociable:** Los archivos `.txt` y `.pdf` **nunca se eliminan, ni se modifican, ni se borran del disco local**. Permanecen intactos como insumos primarios locales.
+2. **Depuración y Filtrado de Intermediarios:**
+   - Extraer los tópicos técnicos del `.txt` eliminando saludos, nombres de plataformas de terceros (*Whizlabs*, instructores, portales comerciales).
+3. **Investigación y Sustentación con Fuentes Primarias:**
+   - Mapear cada concepto a la documentación oficial de AWS y estándares NIST, estructurando las citas bilingües y citas en formato APA 7.ª ed. `(Autor, año)`.
+4. **Generación de Diagramas e Imágenes Arquitectónicas:**
+   - Formular los prompts con el estilo técnico lineal Fortinet (fondo blanco puro, componentes en verde oscuro y verde azulado / teal, etiquetas en español).
+   - Generar los artefactos visuales y almacenarlos en `assets/images/<nombre_del_diagrama>.jpg`.
+5. **Redacción de la Guía Técnica (.md):**
+   - Redactar en español formal (voz pasiva e impersonal).
+   - Incrustar los diagramas generados (`![Descripción](../assets/images/<diagrama>.jpg)`) y sus bloques de prompt técnicos.
+   - Adjuntar la lista de referencias bibliográficas en formato APA 7.ª edición.
+6. **Actualización de Índices de Repositorio:**
+   - Actualizar el archivo raíz [README.md](file:///c:/Users/Admin/Documents/AWS%20CCP/README.md) agregando los nuevos módulos y guías procesadas en la tabla de contenido.
+7. **Sincronización y Despliegue Automático a GitHub:**
+   - Verificar que `.gitignore` mantenga ignorados los archivos binarios y notas locales (`*.txt`, `*.pdf`, `*.log`, `*.tmp`).
+   - Preparar los archivos creados o actualizados: `git add .`
+   - Crear un commit estructurado: `git commit -m "docs: generar nuevas guías técnicas y diagramas arquitectónicos"`
+   - Publicar los cambios en el repositorio remoto: `git push origin main`
