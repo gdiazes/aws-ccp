@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Examen - Módulo 02: Conceptos de la Nube (AWS CLF-C02)</title>
+  <title>Simulador de Examen Secuencial - Módulo 02: Conceptos de la Nube (AWS CLF-C02)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at 50% 0%, #0d1b2a 0%, #050b14 100%);
-      --card-bg: rgba(13, 27, 42, 0.85);
+      --card-bg: rgba(13, 27, 42, 0.88);
       --card-border: rgba(46, 196, 182, 0.25);
       --card-hover-border: rgba(46, 196, 182, 0.6);
       --primary-teal: #2ec4b6;
@@ -46,14 +46,14 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 860px;
       width: 100%;
     }
 
     header {
       text-align: center;
       margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -64,8 +64,8 @@
       background: rgba(46, 196, 182, 0.15);
       color: var(--primary-teal);
       border: 1px solid var(--primary-teal);
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
       margin-bottom: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -82,19 +82,20 @@
 
     .subtitle {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
+    /* Meta bar fija */
     .meta-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       position: sticky;
       top: 1rem;
       z-index: 100;
@@ -104,13 +105,16 @@
     .stat-item {
       display: flex;
       flex-direction: column;
+      text-align: center;
     }
 
     .stat-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       color: var(--text-muted);
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
     }
 
     .stat-value {
@@ -120,14 +124,18 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .timer-display {
+    .pending-display {
       color: var(--accent-orange);
+    }
+
+    .timer-display {
+      color: #38bdf8;
     }
 
     .progress-bar-container {
       width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.1);
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 999px;
       margin-bottom: 2rem;
       overflow: hidden;
@@ -135,70 +143,74 @@
 
     .progress-bar-fill {
       height: 100%;
-      width: 0%;
+      width: 5%;
       background: linear-gradient(90deg, var(--primary-teal), var(--primary-green));
-      transition: width 0.3s ease;
+      transition: width 0.35s ease;
     }
 
+    /* Question Container */
     .question-card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 2rem;
+      border-radius: 18px;
+      padding: 2.25rem;
       margin-bottom: 1.75rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .question-card:hover {
-      border-color: var(--card-hover-border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .question-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .q-number {
+    .q-badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: var(--primary-teal);
-      background: rgba(46, 196, 182, 0.1);
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
+      background: rgba(46, 196, 182, 0.12);
+      border: 1px solid rgba(46, 196, 182, 0.3);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
     }
 
-    .q-points {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 500;
+    .q-notice {
+      font-size: 0.8rem;
+      color: var(--accent-orange);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
     }
 
     .q-text {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 600;
       line-height: 1.6;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+      color: #ffffff;
     }
 
     .options-list {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .option-label {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
+      gap: 1.1rem;
+      padding: 1.1rem 1.35rem;
       background: var(--opt-bg);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.2s ease;
       user-select: none;
@@ -213,13 +225,14 @@
     .option-label.selected {
       background: var(--opt-selected);
       border-color: var(--primary-teal);
+      box-shadow: 0 0 15px rgba(46, 196, 182, 0.2);
     }
 
     .option-radio {
       appearance: none;
       margin-top: 0.2rem;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border: 2px solid rgba(255, 255, 255, 0.4);
       border-radius: 50%;
       outline: none;
@@ -232,8 +245,8 @@
 
     .option-radio::before {
       content: "";
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       transform: scale(0);
       transition: transform 0.2s ease;
@@ -249,57 +262,21 @@
     }
 
     .option-text {
-      font-size: 0.98rem;
+      font-size: 1.02rem;
       line-height: 1.5;
       color: #e2e8f0;
     }
 
-    .feedback-box {
-      margin-top: 1.5rem;
-      padding: 1.25rem;
-      border-radius: 10px;
-      display: none;
-      animation: fadeIn 0.4s ease;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .feedback-box.correct {
-      background: var(--correct-bg);
-      border: 1px solid var(--correct-border);
-      color: #bbf7d0;
-    }
-
-    .feedback-box.incorrect {
-      background: var(--incorrect-bg);
-      border: 1px solid var(--incorrect-border);
-      color: #fecaca;
-    }
-
-    .feedback-title {
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .feedback-apa {
-      margin-top: 0.75rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
     .actions-bar {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
+      align-items: center;
       gap: 1rem;
-      margin: 2rem 0;
+      margin-top: 2rem;
     }
 
     .btn {
-      padding: 0.9rem 2.2rem;
+      padding: 0.95rem 2.4rem;
       border-radius: 12px;
       font-size: 1.05rem;
       font-weight: 700;
@@ -311,25 +288,22 @@
       gap: 0.5rem;
     }
 
-    .btn-submit {
+    .btn-next {
       background: linear-gradient(135deg, var(--primary-teal) 0%, #1b9aaa 100%);
       color: #050b14;
       box-shadow: 0 4px 15px rgba(46, 196, 182, 0.4);
     }
 
-    .btn-submit:hover {
+    .btn-next:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none;
+    }
+
+    .btn-next:not(:disabled):hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(46, 196, 182, 0.6);
-    }
-
-    .btn-reset {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-main);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-reset:hover {
-      background: rgba(255, 255, 255, 0.2);
     }
 
     /* Modal de Resultados */
@@ -339,8 +313,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(5, 11, 20, 0.85);
-      backdrop-filter: blur(10px);
+      background: rgba(5, 11, 20, 0.88);
+      backdrop-filter: blur(12px);
       display: none;
       justify-content: center;
       align-items: center;
@@ -353,16 +327,16 @@
       border: 2px solid var(--primary-teal);
       border-radius: 24px;
       padding: 2.5rem;
-      max-width: 650px;
+      max-width: 680px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
       animation: scaleIn 0.35s ease;
     }
 
     .score-circle {
-      width: 160px;
-      height: 160px;
+      width: 165px;
+      height: 165px;
       border-radius: 50%;
       margin: 1.5rem auto;
       display: flex;
@@ -370,12 +344,12 @@
       justify-content: center;
       align-items: center;
       border: 6px solid var(--primary-teal);
-      box-shadow: 0 0 30px rgba(46, 196, 182, 0.4);
-      background: rgba(13, 27, 42, 0.9);
+      box-shadow: 0 0 35px rgba(46, 196, 182, 0.4);
+      background: rgba(13, 27, 42, 0.95);
     }
 
     .score-big {
-      font-size: 3.2rem;
+      font-size: 3.4rem;
       font-weight: 800;
       font-family: 'JetBrains Mono', monospace;
       line-height: 1;
@@ -383,18 +357,19 @@
     }
 
     .score-max {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       font-weight: 600;
+      margin-top: 0.2rem;
     }
 
     .status-tag {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      padding: 0.4rem 1.5rem;
+      padding: 0.4rem 1.6rem;
       border-radius: 999px;
       display: inline-block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .status-passed {
@@ -426,38 +401,101 @@
     }
 
     .metric-box-title {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 0.35rem;
     }
 
     .metric-box-val {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: #ffffff;
       font-family: 'JetBrains Mono', monospace;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Review View */
+    #reviewContainer {
+      display: none;
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+    .review-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .review-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-card.correct-card {
+      border-left: 6px solid var(--primary-green);
+    }
+
+    .review-card.incorrect-card {
+      border-left: 6px solid var(--danger-red);
+    }
+
+    .feedback-box {
+      margin-top: 1.25rem;
+      padding: 1.15rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .feedback-box.correct {
+      background: var(--correct-bg);
+      border: 1px solid var(--correct-border);
+      color: #dcfce7;
+    }
+
+    .feedback-box.incorrect {
+      background: var(--incorrect-bg);
+      border: 1px solid var(--incorrect-border);
+      color: #fee2e2;
+    }
+
+    .feedback-apa {
+      margin-top: 0.65rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.9); }
+      from { opacity: 0; transform: scale(0.92); }
       to { opacity: 1; transform: scale(1); }
     }
 
     @media (max-width: 640px) {
       .meta-bar {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 0.75rem;
-        align-items: flex-start;
       }
       .metrics-grid {
         grid-template-columns: 1fr;
+      }
+      .actions-bar {
+        justify-content: center;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
@@ -467,22 +505,22 @@
   <div class="container">
     <header>
       <span class="badge">AWS Certified Cloud Practitioner (CLF-C02)</span>
-      <h1>Simulador Modular Interactivo</h1>
-      <p class="subtitle">Módulo 02: Conceptos de la Nube • Sistema Vigesimal (Escala 0 a 20 Puntos)</p>
+      <h1>Simulador Modular Secuencial</h1>
+      <p class="subtitle">Módulo 02: Conceptos de la Nube • Preguntas 1 a 1 sin retroceso • Sistema Vigesimal (0-20 Pts)</p>
     </header>
 
     <div class="meta-bar">
       <div class="stat-item">
-        <span class="stat-label">Preguntas Respondidas</span>
-        <span class="stat-value" id="answeredCount">0 / 20</span>
+        <span class="stat-label">Progreso Actual</span>
+        <span class="stat-value" id="currentQDisplay">Pregunta 01 / 20</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Por Resolver</span>
+        <span class="stat-value pending-display" id="pendingDisplay">19 pendientes</span>
       </div>
       <div class="stat-item">
         <span class="stat-label">Tiempo Transcurrido</span>
         <span class="stat-value timer-display" id="timerDisplay">00:00</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Criterio Aprobatorio</span>
-        <span class="stat-value" style="color: #2ecc71;">&ge; 14.00 / 20 (70%)</span>
       </div>
     </div>
 
@@ -490,32 +528,53 @@
       <div class="progress-bar-fill" id="progressBar"></div>
     </div>
 
-    <form id="quizForm">
-      <div id="questionsContainer"></div>
+    <!-- Contenedor del Examen Activo (1 a 1) -->
+    <div id="activeExamSection">
+      <div class="question-card" id="currentCard">
+        <div class="question-header">
+          <span class="q-badge" id="cardBadge">PREGUNTA 01 / 20</span>
+          <span class="q-notice">&#9888; Avance secuencial definitivo (sin retroceso)</span>
+        </div>
+        <div class="q-text" id="cardQuestionText">Cargando pregunta...</div>
+        <div class="options-list" id="cardOptionsList"></div>
 
-      <div class="actions-bar">
-        <button type="button" class="btn btn-submit" id="btnSubmit" onclick="submitExam()">
-          Finalizar y Calificar Examen
-        </button>
-        <button type="button" class="btn btn-reset" onclick="resetExam()">
-          Reiniciar
+        <div class="actions-bar">
+          <button type="button" class="btn btn-next" id="btnNext" disabled onclick="handleNextQuestion()">
+            Siguiente Pregunta &#10140;
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Revisión Final (Post-Calificación) -->
+    <div id="reviewContainer">
+      <div class="review-header">
+        <h2>Revisión Técnica Detallada de Respuestas</h2>
+        <p style="color: var(--text-muted); margin-top: 0.25rem;">
+          Consulte la retroalimentación y justificación académica de cada pregunta con base en la documentación oficial de AWS.
+        </p>
+      </div>
+      <div id="reviewList"></div>
+      <div style="text-align: center; margin: 3rem 0;">
+        <button class="btn btn-next" onclick="restartExam()">
+          &#8635; Realizar un Nuevo Intento
         </button>
       </div>
-    </form>
+    </div>
   </div>
 
   <!-- Modal de Resultados -->
   <div class="modal-overlay" id="resultModal">
     <div class="result-card">
       <div id="statusTag" class="status-tag status-passed">¡APROBADO!</div>
-      <h2>Reporte de Calificación</h2>
+      <h2>Reporte Final de Calificación</h2>
       <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
-        Evaluación Oficial del Módulo 02 (Escala Vigesimal)
+        Evaluación Oficial del Módulo 02 (Escala Vigesimal 0 a 20)
       </p>
 
       <div class="score-circle" id="scoreCircle">
         <div class="score-big" id="scoreVigesimal">20.0</div>
-        <div class="score-max">/ 20 PUNTOS</div>
+        <div class="score-max">/ 20.0 PUNTOS</div>
       </div>
 
       <div class="metrics-grid">
@@ -533,10 +592,10 @@
         </div>
       </div>
 
-      <p id="resultMsg" style="line-height: 1.5; margin-bottom: 2rem; color: #e2e8f0;"></p>
+      <p id="resultMsg" style="line-height: 1.6; margin-bottom: 2rem; color: #e2e8f0; font-size: 0.98rem;"></p>
 
-      <button class="btn btn-submit" onclick="closeModal()">
-        Revisar Retroalimentación Detallada
+      <button class="btn btn-next" style="width: 100%; justify-content: center;" onclick="showReviewView()">
+        Revisar Todas las Preguntas y Justificaciones &#10140;
       </button>
     </div>
   </div>
@@ -805,71 +864,22 @@
       }
     ];
 
+    let currentIndex = 0;
     let userAnswers = {};
     let secondsElapsed = 0;
     let timerInterval = null;
     let examFinished = false;
 
-    function initQuiz() {
-      const container = document.getElementById("questionsContainer");
-      container.innerHTML = "";
-
-      questionsData.forEach((q, idx) => {
-        const card = document.createElement("div");
-        card.className = "question-card";
-        card.id = `qCard_${q.id}`;
-
-        let optionsHtml = q.options.map(opt => `
-          <label class="option-label" id="optLabel_${q.id}_${opt.key}">
-            <input type="radio" name="q_${q.id}" value="${opt.key}" class="option-radio" onchange="selectOption(${q.id}, '${opt.key}')">
-            <span class="option-text"><b>${opt.key})</b> ${opt.text}</span>
-          </label>
-        `).join("");
-
-        card.innerHTML = `
-          <div class="question-header">
-            <span class="q-number">PREGUNTA ${String(idx + 1).padStart(2, '0')} / 20</span>
-            <span class="q-points">Valor: 1.00 Ptos</span>
-          </div>
-          <div class="q-text">${q.question}</div>
-          <div class="options-list">
-            ${optionsHtml}
-          </div>
-          <div class="feedback-box" id="feedback_${q.id}">
-            <div class="feedback-title" id="feedbackTitle_${q.id}"></div>
-            <div id="feedbackText_${q.id}"></div>
-            <div class="feedback-apa">Fuente Primaria Oficial: ${q.apa}</div>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-
+    function initExam() {
+      currentIndex = 0;
+      userAnswers = {};
+      examFinished = false;
+      document.getElementById("activeExamSection").style.display = "block";
+      document.getElementById("reviewContainer").style.display = "none";
+      document.getElementById("resultModal").style.display = "none";
+      
       startTimer();
-    }
-
-    function selectOption(qId, selectedKey) {
-      if (examFinished) return;
-      userAnswers[qId] = selectedKey;
-
-      // Update styling
-      const q = questionsData.find(item => item.id === qId);
-      q.options.forEach(opt => {
-        const label = document.getElementById(`optLabel_${qId}_${opt.key}`);
-        if (opt.key === selectedKey) {
-          label.classList.add("selected");
-        } else {
-          label.classList.remove("selected");
-        }
-      });
-
-      updateProgress();
-    }
-
-    function updateProgress() {
-      const answered = Object.keys(userAnswers).length;
-      document.getElementById("answeredCount").innerText = `${answered} / 20`;
-      const pct = (answered / 20) * 100;
-      document.getElementById("progressBar").style.width = `${pct}%`;
+      renderCurrentQuestion();
     }
 
     function startTimer() {
@@ -883,50 +893,102 @@
       }, 1000);
     }
 
-    function submitExam() {
-      if (examFinished) return;
+    function renderCurrentQuestion() {
+      const q = questionsData[currentIndex];
+      const qNumFormatted = String(currentIndex + 1).padStart(2, '0');
+      const pendingCount = 20 - (currentIndex + 1);
 
-      const answeredCount = Object.keys(userAnswers).length;
-      if (answeredCount < 20) {
-        const confirmSubmit = confirm(`Has respondido ${answeredCount} de 20 preguntas. ¿Deseas finalizar y calificar la evaluación de todas formas?`);
-        if (!confirmSubmit) return;
+      // Meta Bar Updates
+      document.getElementById("currentQDisplay").innerText = `Pregunta ${qNumFormatted} / 20`;
+      document.getElementById("pendingDisplay").innerText = pendingCount === 0 ? "¡Última Pregunta!" : `${pendingCount} por resolver`;
+      
+      // Progress Bar
+      const pct = ((currentIndex + 1) / 20) * 100;
+      document.getElementById("progressBar").style.width = `${pct}%`;
+
+      // Card Updates
+      document.getElementById("cardBadge").innerText = `PREGUNTA ${qNumFormatted} / 20 (Valor: 1.00 Pto)`;
+      document.getElementById("cardQuestionText").innerText = q.question;
+
+      // Options Rendering
+      const optionsContainer = document.getElementById("cardOptionsList");
+      optionsContainer.innerHTML = "";
+
+      q.options.forEach(opt => {
+        const label = document.createElement("label");
+        label.className = "option-label";
+        label.id = `optLabel_${opt.key}`;
+        label.onclick = () => selectOption(opt.key);
+
+        label.innerHTML = `
+          <input type="radio" name="current_option" value="${opt.key}" class="option-radio" id="radio_${opt.key}">
+          <span class="option-text"><b>${opt.key})</b> ${opt.text}</span>
+        `;
+        optionsContainer.appendChild(label);
+      });
+
+      // Next Button State
+      const btnNext = document.getElementById("btnNext");
+      btnNext.disabled = true;
+      if (currentIndex === 19) {
+        btnNext.innerHTML = "Finalizar y Calificar Examen &#127942;";
+      } else {
+        btnNext.innerHTML = "Siguiente Pregunta &#10140;";
       }
 
+      // Re-trigger animation
+      const card = document.getElementById("currentCard");
+      card.style.animation = "none";
+      void card.offsetWidth;
+      card.style.animation = "slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
+    }
+
+    function selectOption(selectedKey) {
+      if (examFinished) return;
+      const q = questionsData[currentIndex];
+      userAnswers[q.id] = selectedKey;
+
+      // Update Radio and Label Classes
+      q.options.forEach(opt => {
+        const lbl = document.getElementById(`optLabel_${opt.key}`);
+        const rad = document.getElementById(`radio_${opt.key}`);
+        if (opt.key === selectedKey) {
+          lbl.classList.add("selected");
+          rad.checked = true;
+        } else {
+          lbl.classList.remove("selected");
+          rad.checked = false;
+        }
+      });
+
+      // Enable Next Button
+      document.getElementById("btnNext").disabled = false;
+    }
+
+    function handleNextQuestion() {
+      const q = questionsData[currentIndex];
+      if (!userAnswers[q.id]) {
+        alert("Por favor, seleccione una alternativa para continuar.");
+        return;
+      }
+
+      if (currentIndex < 19) {
+        currentIndex++;
+        renderCurrentQuestion();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      } else {
+        finishAndGradeExam();
+      }
+    }
+
+    function finishAndGradeExam() {
       clearInterval(timerInterval);
       examFinished = true;
 
-      // Disable inputs
-      document.querySelectorAll(".option-radio").forEach(r => r.disabled = true);
-      document.getElementById("btnSubmit").disabled = true;
-      document.getElementById("btnSubmit").style.opacity = "0.6";
-
       let correctTotal = 0;
-
       questionsData.forEach(q => {
-        const userChoice = userAnswers[q.id];
-        const isCorrect = userChoice === q.correct;
-        if (isCorrect) correctTotal++;
-
-        const fbBox = document.getElementById(`feedback_${q.id}`);
-        const fbTitle = document.getElementById(`feedbackTitle_${q.id}`);
-        const fbText = document.getElementById(`feedbackText_${q.id}`);
-        fbBox.style.display = "block";
-
-        if (isCorrect) {
-          fbBox.className = "feedback-box correct";
-          fbTitle.innerHTML = `&#10004; ¡Correcto! (+1.00 Pto)`;
-          fbText.innerHTML = `<b>Respuesta Correcta (${q.correct}):</b> ${q.explanation}`;
-        } else {
-          fbBox.className = "feedback-box incorrect";
-          fbTitle.innerHTML = `&#10008; Incorrecto (0.00 Ptos) - Marcaste: ${userChoice || "Sin responder"}`;
-          fbText.innerHTML = `<b>Respuesta Correcta (${q.correct}):</b> ${q.explanation}`;
-        }
-
-        // Highlight correct option
-        const correctLabel = document.getElementById(`optLabel_${q.id}_${q.correct}`);
-        if (correctLabel) {
-          correctLabel.style.borderColor = "var(--correct-border)";
-          correctLabel.style.background = "var(--correct-bg)";
+        if (userAnswers[q.id] === q.correct) {
+          correctTotal++;
         }
       });
 
@@ -952,37 +1014,80 @@
         scoreCircle.style.borderColor = "var(--primary-green)";
         scoreCircle.style.boxShadow = "0 0 35px rgba(46, 204, 113, 0.4)";
         document.getElementById("scoreVigesimal").style.color = "var(--primary-green)";
-        resultMsg.innerHTML = `¡Excelente desempeño! Has superado la nota mínima aprobatoria vigesimal (<b>14.0 / 20</b>), demostrando un dominio sólido de los Conceptos de la Nube según los criterios del examen AWS CLF-C02.`;
+        resultMsg.innerHTML = `¡Excelente trabajo! Has obtenido <b>${vigesimalScore} / 20.0 Puntos</b>, superando la nota mínima aprobatoria (<b>14.0 / 20</b>). Demuestras un dominio sólido de los conceptos de la nube del examen AWS CLF-C02.`;
       } else {
         statusTag.className = "status-tag status-failed";
         statusTag.innerText = "NO APROBADO";
         scoreCircle.style.borderColor = "var(--danger-red)";
         scoreCircle.style.boxShadow = "0 0 35px rgba(231, 29, 54, 0.4)";
         document.getElementById("scoreVigesimal").style.color = "var(--danger-red)";
-        resultMsg.innerHTML = `La nota obtenida es inferior al puntaje aprobatorio mínimo de <b>14.0 / 20 (70% - 700 pts)</b>. Revisa la retroalimentación técnica de las preguntas marcadas en rojo para afianzar los conceptos del módulo.`;
+        resultMsg.innerHTML = `La nota obtenida es <b>${vigesimalScore} / 20.0 Puntos</b>, por debajo del umbral aprobatorio de <b>14.0 / 20 (70% - 700 pts)</b>. Revisa a continuación las justificaciones técnicas para consolidar tu aprendizaje.`;
       }
 
       document.getElementById("resultModal").style.display = "flex";
     }
 
-    function closeModal() {
+    function showReviewView() {
       document.getElementById("resultModal").style.display = "none";
-      window.scrollTo({ top: 400, behavior: 'smooth' });
+      document.getElementById("activeExamSection").style.display = "none";
+      
+      const reviewContainer = document.getElementById("reviewContainer");
+      const reviewList = document.getElementById("reviewList");
+      reviewList.innerHTML = "";
+
+      questionsData.forEach((q, idx) => {
+        const userChoice = userAnswers[q.id];
+        const isCorrect = userChoice === q.correct;
+        const qNumFormatted = String(idx + 1).padStart(2, '0');
+
+        const card = document.createElement("div");
+        card.className = `review-card ${isCorrect ? 'correct-card' : 'incorrect-card'}`;
+
+        let optionsHtml = q.options.map(opt => {
+          let optStyle = "";
+          let extraTag = "";
+          if (opt.key === q.correct) {
+            optStyle = "border-color: var(--correct-border); background: var(--correct-bg); font-weight: 600;";
+            extraTag = " <span style='color: var(--primary-green); font-weight: 700;'>[RESPUESTA CORRECTA OFICIAL]</span>";
+          } else if (opt.key === userChoice && !isCorrect) {
+            optStyle = "border-color: var(--incorrect-border); background: var(--incorrect-bg);";
+            extraTag = " <span style='color: var(--danger-red); font-weight: 700;'>[TU SELECCIÓN]</span>";
+          }
+          return `
+            <div style="padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.4rem; ${optStyle}">
+              <b>${opt.key})</b> ${opt.text} ${extraTag}
+            </div>
+          `;
+        }).join("");
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+            <span class="q-badge">PREGUNTA ${qNumFormatted} / 20</span>
+            <span style="font-weight: 700; color: ${isCorrect ? 'var(--primary-green)' : 'var(--danger-red)'};">
+              ${isCorrect ? '&#10004; +1.00 Pto (Correcto)' : '&#10008; 0.00 Ptos (Incorrecto)'}
+            </span>
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.5;">${q.question}</div>
+          <div style="margin-bottom: 1rem;">${optionsHtml}</div>
+          <div class="feedback-box ${isCorrect ? 'correct' : 'incorrect'}">
+            <div><b>Justificación Técnica:</b> ${q.explanation}</div>
+            <div class="feedback-apa">Fuente Primaria Oficial: ${q.apa}</div>
+          </div>
+        `;
+        reviewList.appendChild(card);
+      });
+
+      reviewContainer.style.display = "block";
+      window.scrollTo({ top: 150, behavior: 'smooth' });
     }
 
-    function resetExam() {
-      if (confirm("¿Estás seguro de que deseas reiniciar la evaluación? Se borrarán todas las respuestas.")) {
-        userAnswers = {};
-        examFinished = false;
-        document.getElementById("btnSubmit").disabled = false;
-        document.getElementById("btnSubmit").style.opacity = "1";
-        document.getElementById("resultModal").style.display = "none";
-        initQuiz();
-        updateProgress();
+    function restartExam() {
+      if (confirm("¿Desea iniciar un nuevo intento de la evaluación?")) {
+        initExam();
       }
     }
 
-    window.onload = initQuiz;
+    window.onload = initExam;
   </script>
 </body>
 </html>
