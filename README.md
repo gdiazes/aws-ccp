@@ -19,14 +19,15 @@ AWS CCP/
 │   ├── 04_Benefits_of_the_AWS_Cloud.md
 │   ├── 05_Setting_Up_AWS_Free_Tier_Account.md
 │   ├── 07_Getting_Familiar_with_AWS_Console.md
-│   └── 08_AWS_Support_Plans_Comparison.md
+│   ├── 08_AWS_Support_Plans_Comparison.md
+│   └── 09_Module_02_Cloud_Concepts_Quiz.md
 └── assets/
     └── images/                           # Diagramas arquitectónicos generados 
 ```
 
 ---
 
-## 📑 Índice de Guías Técnicas
+## 📑 Índice de Guías Técnicas y Evaluaciones
 
 ### 01. INTRODUCCIÓN
 - **[00. Visión General del Curso](01%20INTRODUCTION/00_Introduction_Overview_of_the_Course.md):** Propósito del examen CLF-C02, perfiles evaluados, transición curricular desde CLF-C01 y metodología de estudio.
@@ -41,5 +42,6 @@ AWS CCP/
 - **[05. Creación de Cuenta en AWS Free Tier](02%20CLOUD%20CONCEPTS/05_Setting_Up_AWS_Free_Tier_Account.md):** Tipos de ofertas (*Always Free*, *12 Months Free*, *Trials*) y mejores prácticas de seguridad para el **Usuario Raíz (*Root User*)** y **MFA**.
 - **[07. Familiarización con la Consola de AWS](02%20CLOUD%20CONCEPTS/07_Getting_Familiar_with_AWS_Console.md):** Barra de navegación superior, **AWS CloudShell** (1 GB persistente), **AWS Trusted Advisor** y widgets del panel principal.
 - **[08. Comparativa de Planes de Soporte de AWS](02%20CLOUD%20CONCEPTS/08_AWS_Support_Plans_Comparison.md):** Matriz detallada entre *Basic*, *Developer*, *Business*, *Enterprise On-Ramp* y *Enterprise* (SLAs, asignación de TAM y precios).
+- **[09. Evaluación Formativa del Módulo 02 (Quiz de 20 Preguntas)](02%20CLOUD%20CONCEPTS/09_Module_02_Cloud_Concepts_Quiz.md):** Cuestionario integral de 20 preguntas con justificaciones técnicas y citas APA 7.ª edición.
 
 
