@@ -2,7 +2,25 @@
 
 Este documento constituye la **evaluación formativa integral del Módulo 02: Conceptos de la Nube**, diseñada bajo los estándares de evaluación y dominios de conocimiento del examen oficial **AWS Certified Cloud Practitioner (CLF-C02)**. Contiene 20 preguntas de opción múltiple estructuradas con justificación técnica exhaustiva y sustentación bajo normas APA 7.ª edición.
 
+> 🚀 **Simulador Interactivo en Tiempo Real:**  
+> Puede ejecutar esta evaluación de manera interactiva con temporizador, selección de opciones y cálculo automático de nota final abriendo el archivo:  
+> **👉 [Abrir Simulador Web Interactivo (Quiz Modular 02)](09_Module_02_Cloud_Concepts_Interactive_Quiz.html)**
+
 ---
+
+## 📊 Baremo de Calificación en Sistema Vigesimal (Escala 0 a 20)
+
+La evaluación asigna **1.00 punto** por cada respuesta correcta, totalizando una escala vigesimal de **0 a 20 puntos**, alineada proporcionalmente con el puntaje escalado oficial de AWS (100 a 1000 puntos):
+
+| Calificación Vigesimal (0 - 20) | Aciertos (/20) | Porcentaje (%) | Equivalencia Escala AWS (100 - 1000) | Condición Académica |
+| :---: | :---: | :---: | :---: | :---: |
+| **19.0 – 20.0** | 19 – 20 | 95% – 100% | 955 – 1000 | **Excelente (Sobresaliente)** |
+| **17.0 – 18.0** | 17 – 18 | 85% – 90% | 865 – 910 | **Muy Bueno (Avanzado)** |
+| **14.0 – 16.0** | 14 – 16 | 70% – 80% | **730 – 820** | **Aprobado (Criterio Mínimo)** |
+| **11.0 – 13.0** | 11 – 13 | 55% – 65% | 595 – 685 | **En Desarrollo (Requiere Repaso)** |
+| **0.0 – 10.0** | 0 – 10 | 0% – 50% | 100 – 550 | **Desaprobado (Revisión Completa)** |
+
+> ⚠️ **Criterio de Aprobación Oficial:** La nota mínima aprobatoria es **14.00 / 20 puntos (70%)**, equivalente a obtener $\ge 700 / 1000$ puntos en el examen oficial de AWS (Amazon Web Services, 2023a).
 
 ## Cuestionario de Evaluación (20 Preguntas)
 

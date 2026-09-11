@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Examen - Módulo 02: Conceptos de la Nube (AWS CLF-C02)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 50% 0%, #0d1b2a 0%, #050b14 100%);
+      --card-bg: rgba(13, 27, 42, 0.85);
+      --card-border: rgba(46, 196, 182, 0.25);
+      --card-hover-border: rgba(46, 196, 182, 0.6);
+      --primary-teal: #2ec4b6;
+      --primary-green: #2ecc71;
+      --accent-orange: #ff9f1c;
+      --danger-red: #e71d36;
+      --text-main: #f8f9fa;
+      --text-muted: #94a3b8;
+      --opt-bg: rgba(255, 255, 255, 0.04);
+      --opt-hover: rgba(46, 196, 182, 0.12);
+      --opt-selected: rgba(46, 196, 182, 0.25);
+      --correct-bg: rgba(46, 204, 113, 0.15);
+      --correct-border: #2ecc71;
+      --incorrect-bg: rgba(231, 29, 54, 0.15);
+      --incorrect-border: #e71d36;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(46, 196, 182, 0.15);
+      color: var(--primary-teal);
+      border: 1px solid var(--primary-teal);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #2ec4b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-teal);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .timer-display {
+      color: var(--accent-orange);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary-teal), var(--primary-green));
+      transition: width 0.3s ease;
+    }
+
+    .question-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .question-card:hover {
+      border-color: var(--card-hover-border);
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .q-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-teal);
+      background: rgba(46, 196, 182, 0.1);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .q-points {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .q-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--opt-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .option-label:hover {
+      background: var(--opt-hover);
+      border-color: var(--primary-teal);
+      transform: translateX(4px);
+    }
+
+    .option-label.selected {
+      background: var(--opt-selected);
+      border-color: var(--primary-teal);
+    }
+
+    .option-radio {
+      appearance: none;
+      margin-top: 0.2rem;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.2s ease;
+    }
+
+    .option-radio::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.2s ease;
+      background-color: var(--primary-teal);
+    }
+
+    .option-radio:checked {
+      border-color: var(--primary-teal);
+    }
+
+    .option-radio:checked::before {
+      transform: scale(1);
+    }
+
+    .option-text {
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+
+    .feedback-box {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border-radius: 10px;
+      display: none;
+      animation: fadeIn 0.4s ease;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .feedback-box.correct {
+      background: var(--correct-bg);
+      border: 1px solid var(--correct-border);
+      color: #bbf7d0;
+    }
+
+    .feedback-box.incorrect {
+      background: var(--incorrect-bg);
+      border: 1px solid var(--incorrect-border);
+      color: #fecaca;
+    }
+
+    .feedback-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feedback-apa {
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .actions-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .btn {
+      padding: 0.9rem 2.2rem;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary-teal) 0%, #1b9aaa 100%);
+      color: #050b14;
+      box-shadow: 0 4px 15px rgba(46, 196, 182, 0.4);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(46, 196, 182, 0.6);
+    }
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-reset:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Modal de Resultados */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(5, 11, 20, 0.85);
+      backdrop-filter: blur(10px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .result-card {
+      background: #0d1b2a;
+      border: 2px solid var(--primary-teal);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      animation: scaleIn 0.35s ease;
+    }
+
+    .score-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 1.5rem auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 6px solid var(--primary-teal);
+      box-shadow: 0 0 30px rgba(46, 196, 182, 0.4);
+      background: rgba(13, 27, 42, 0.9);
+    }
+
+    .score-big {
+      font-size: 3.2rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+      color: var(--primary-teal);
+    }
+
+    .score-max {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .status-tag {
+      font-size: 1.4rem;
+      font-weight: 800;
+      padding: 0.4rem 1.5rem;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-passed {
+      background: rgba(46, 204, 113, 0.2);
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green);
+    }
+
+    .status-failed {
+      background: rgba(231, 29, 54, 0.2);
+      color: var(--danger-red);
+      border: 1px solid var(--danger-red);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+      text-align: left;
+    }
+
+    .metric-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .metric-box-title {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-box-val {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 640px) {
+      .meta-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <span class="badge">AWS Certified Cloud Practitioner (CLF-C02)</span>
+      <h1>Simulador Modular Interactivo</h1>
+      <p class="subtitle">Módulo 02: Conceptos de la Nube • Sistema Vigesimal (Escala 0 a 20 Puntos)</p>
+    </header>
+
+    <div class="meta-bar">
+      <div class="stat-item">
+        <span class="stat-label">Preguntas Respondidas</span>
+        <span class="stat-value" id="answeredCount">0 / 20</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Tiempo Transcurrido</span>
+        <span class="stat-value timer-display" id="timerDisplay">00:00</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Criterio Aprobatorio</span>
+        <span class="stat-value" style="color: #2ecc71;">&ge; 14.00 / 20 (70%)</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <form id="quizForm">
+      <div id="questionsContainer"></div>
+
+      <div class="actions-bar">
+        <button type="button" class="btn btn-submit" id="btnSubmit" onclick="submitExam()">
+          Finalizar y Calificar Examen
+        </button>
+        <button type="button" class="btn btn-reset" onclick="resetExam()">
+          Reiniciar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal de Resultados -->
+  <div class="modal-overlay" id="resultModal">
+    <div class="result-card">
+      <div id="statusTag" class="status-tag status-passed">¡APROBADO!</div>
+      <h2>Reporte de Calificación</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+        Evaluación Oficial del Módulo 02 (Escala Vigesimal)
+      </p>
+
+      <div class="score-circle" id="scoreCircle">
+        <div class="score-big" id="scoreVigesimal">20.0</div>
+        <div class="score-max">/ 20 PUNTOS</div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="metric-box-title">Equiv. Escala AWS</div>
+          <div class="metric-box-val" id="scoreAws">1000 / 1000</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-title">Aciertos Totales</div>
+          <div class="metric-box-val" id="correctCount">20 / 20</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-title">Porcentaje Final</div>
+          <div class="metric-box-val" id="scorePercent">100%</div>
+        </div>
+      </div>
+
+      <p id="resultMsg" style="line-height: 1.5; margin-bottom: 2rem; color: #e2e8f0;"></p>
+
+      <button class="btn btn-submit" onclick="closeModal()">
+        Revisar Retroalimentación Detallada
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const questionsData = [
+      {
+        id: 1,
+        question: "¿Cuál de las siguientes afirmaciones describe con mayor precisión la definición de computación en la nube según el estándar NIST SP 800-145 y Amazon Web Services?",
+        options: [
+          { key: "A", text: "Un modelo de entrega que requiere la compra previa de servidores físicos dedicados para garantizar la soberanía de los datos." },
+          { key: "B", text: "La entrega bajo demanda de recursos de TI a través de Internet con una estructura de precios basada en el pago por uso." },
+          { key: "C", text: "Una plataforma exclusiva de virtualización local que elimina la necesidad de conectividad a redes públicas." },
+          { key: "D", text: "Un entorno de desarrollo de software propietario gestionado exclusivamente por el equipo interno de operaciones de TI." }
+        ],
+        correct: "B",
+        explanation: "Según NIST SP 800-145 y AWS (2021), Cloud Computing es la entrega bajo demanda de potencia computacional, bases de datos y almacenamiento vía Internet con precios de pago por uso (pay-as-you-go).",
+        apa: "(Mell & Grance, 2011; Amazon Web Services, 2021)"
+      },
+      {
+        id: 2,
+        question: "Una empresa emergente desea evitar la adquisición anticipada de infraestructura de servidores antes de conocer la demanda real de sus clientes. ¿Cuál de las seis ventajas de la nube de AWS aborda directamente esta necesidad?",
+        options: [
+          { key: "A", text: "Cambiar el gasto de capital (CapEx) por un gasto variable (OpEx)." },
+          { key: "B", text: "Aumentar la velocidad y la agilidad de desarrollo." },
+          { key: "C", text: "Desplegar aplicaciones a escala global en cuestión de minutos." },
+          { key: "D", text: "Beneficiarse de economías de escala masivas." }
+        ],
+        correct: "A",
+        explanation: "Cambiar CapEx por OpEx permite pagar solo cuando se consumen recursos informáticos, eliminando las cuantiosas inversiones iniciales en hardware físico.",
+        apa: "(Amazon Web Services, 2021, 2023a)"
+      },
+      {
+        id: 3,
+        question: "¿Por qué los clientes de AWS obtienen precios unitarios más bajos por gigabyte o ciclo de cómputo en comparación con centros de datos privados?",
+        options: [
+          { key: "A", text: "Debido a acuerdos comerciales obligatorios de permanencia a largo plazo." },
+          { key: "B", text: "Debido a que el uso agregado de cientos de miles de clientes genera economías de escala masivas que AWS traslada en reducciones de precios." },
+          { key: "C", text: "Debido a que AWS subvenciona el hardware mediante publicidad en la consola de gestión." },
+          { key: "D", text: "Debido al uso exclusivo de hardware reacondicionado en todas las regiones globales." }
+        ],
+        correct: "B",
+        explanation: "El volumen agregado de cientos de miles de clientes genera eficiencias operativas masivas que AWS traslada continuamente a los clientes mediante reducciones de tarifas.",
+        apa: "(Amazon Web Services, 2021, 2024a)"
+      },
+      {
+        id: 4,
+        question: "¿Qué principio de la nube de AWS elimina el riesgo de sobreaprovisionar hardware innecesario o quedarse sin capacidad ante picos de demanda?",
+        options: [
+          { key: "A", text: "Dejar de gastar dinero en la ejecución y mantenimiento de centros de datos." },
+          { key: "B", text: "Dejar de adivinar la capacidad (Stop guessing capacity)." },
+          { key: "C", text: "Despliegue global en cuestión de minutos." },
+          { key: "D", text: "Delegación total del cumplimiento normativo al proveedor de nube." }
+        ],
+        correct: "B",
+        explanation: "La elasticidad permite aprovisionar la capacidad exacta requerida y escalar automáticamente hacia arriba o abajo según la demanda real.",
+        apa: "(Amazon Web Services, 2021, 2024b)"
+      },
+      {
+        id: 5,
+        question: "En un entorno tradicional on-premises, la adquisición de servidores demora meses. En AWS toma minutos mediante llamadas API. ¿Qué ventaja representa?",
+        options: [
+          { key: "A", text: "Aumentar la velocidad y la agilidad (Increase speed and agility)." },
+          { key: "B", text: "Alta disponibilidad mediante redundancia activa." },
+          { key: "C", text: "Recuperación ante desastres (Disaster Recovery)." },
+          { key: "D", text: "Gobernanza unificada de cuentas." }
+        ],
+        correct: "A",
+        explanation: "La flexibilidad y el aprovisionamiento instantáneo reducen drásticamente el tiempo de puesta a disposición de infraestructura, acelerando la innovación.",
+        apa: "(Amazon Web Services, 2021)"
+      },
+      {
+        id: 6,
+        question: "Una organización desea enfocar su personal en innovación y software, eliminando el cableado, energía y refrigeración física. ¿Qué ventaja describe esto?",
+        options: [
+          { key: "A", text: "Dejar de gastar dinero en ejecutar y mantener centros de datos." },
+          { key: "B", text: "Aumento de los costos de capital." },
+          { key: "C", text: "Despliegue en entornos multi-nube privados." },
+          { key: "D", text: "Contratación obligatoria de soporte Enterprise." }
+        ],
+        correct: "A",
+        explanation: "Delegar el trabajo pesado no diferenciado de infraestructura física libera al personal para centrarse en los objetivos estratégicos del negocio.",
+        apa: "(Amazon Web Services, 2021)"
+      },
+      {
+        id: 7,
+        question: "Una empresa en América Latina necesita expandir sus servicios a Europa y Asia con latencias mínimas de forma inmediata. ¿Qué ventaja permite esto?",
+        options: [
+          { key: "A", text: "Desplegar globalmente en minutos (Go global in minutes)." },
+          { key: "B", text: "Pago por uso reservado con compromiso a 3 años." },
+          { key: "C", text: "Conversión de OpEx en CapEx." },
+          { key: "D", text: "Aprovisionamiento estático mediante hardware dedicado." }
+        ],
+        correct: "A",
+        explanation: "La presencia global de regiones y puntos de presencia de AWS permite desplegar aplicaciones en múltiples áreas geográficas con mínimos clics.",
+        apa: "(Amazon Web Services, 2021, 2023a)"
+      },
+      {
+        id: 8,
+        question: "¿Cuál de los siguientes modelos de servicio en la nube proporciona al cliente el mayor nivel de control y responsabilidad sobre el sistema operativo y la red?",
+        options: [
+          { key: "A", text: "Software as a Service (SaaS)." },
+          { key: "B", text: "Infrastructure as a Service (IaaS)." },
+          { key: "C", text: "Platform as a Service (PaaS)." },
+          { key: "D", text: "Function as a Service (FaaS) completamente gestionado." }
+        ],
+        correct: "B",
+        explanation: "En IaaS (como Amazon EC2), el cliente es responsable de configurar y mantener el sistema operativo, parches de seguridad y capas de red.",
+        apa: "(Mell & Grance, 2011; Amazon Web Services, 2021)"
+      },
+      {
+        id: 9,
+        question: "Un equipo web desea desplegar código sin gestionar sistemas operativos, balanceadores de carga ni infraestructura subyacente. ¿Qué modelo representa?",
+        options: [
+          { key: "A", text: "Infrastructure as a Service (IaaS)." },
+          { key: "B", text: "Platform as a Service (PaaS)." },
+          { key: "C", text: "On-Premises Bare Metal." },
+          { key: "D", text: "Disaster Recovery as a Service (DRaaS)." }
+        ],
+        correct: "B",
+        explanation: "PaaS (ej. AWS Elastic Beanstalk) abstrae el sistema operativo y el aprovisionamiento, permitiendo al desarrollador enfocarse solo en el código.",
+        apa: "(Mell & Grance, 2011; Amazon Web Services, 2021)"
+      },
+      {
+        id: 10,
+        question: "¿Cuál de las siguientes opciones describe un servicio clasificado bajo Software as a Service (SaaS)?",
+        options: [
+          { key: "A", text: "Aprovisionamiento de una instancia Amazon EC2 con Ubuntu Linux." },
+          { key: "B", text: "Creación de una VPC con subredes públicas y privadas." },
+          { key: "C", text: "Una aplicación web completa para análisis de métricas (como Amazon QuickSight) donde el usuario no gestiona ningún componente de plataforma ni servidor." },
+          { key: "D", text: "Configuración de un volumen de almacenamiento en bloque Amazon EBS." }
+        ],
+        correct: "C",
+        explanation: "SaaS entrega un producto de software final listo para consumir por el usuario sin preocuparse por servidores, parches ni bases de datos subyacentes.",
+        apa: "(Mell & Grance, 2011; Amazon Web Services, 2021)"
+      },
+      {
+        id: 11,
+        question: "Una institución financiera conserva su base de datos confidencial en servidores locales y conecta sus portales web en AWS mediante Direct Connect. ¿Qué modelo es?",
+        options: [
+          { key: "A", text: "Nube Pública pura." },
+          { key: "B", text: "Nube Híbrida." },
+          { key: "C", text: "Nube Privada aislada." },
+          { key: "D", text: "Entorno Multi-Tenant On-Premises." }
+        ],
+        correct: "B",
+        explanation: "La Nube Híbrida enlaza centros de datos locales (on-premises) con recursos elásticos en la nube pública mediante enlaces dedicados o túneles VPN.",
+        apa: "(Amazon Web Services, 2021, 2024b)"
+      },
+      {
+        id: 12,
+        question: "¿Cuál es una característica fundamental de una Región de AWS (AWS Region)?",
+        options: [
+          { key: "A", text: "Es un centro de datos físico individual ubicado en una ciudad específica." },
+          { key: "B", text: "Es una ubicación geográfica en el mundo que contiene múltiples Zonas de Disponibilidad (AZs) aisladas e interconectadas mediante enlaces de baja latencia." },
+          { key: "C", text: "Es una partición lógica de software que solo puede contener un máximo de 10 servidores virtuales." },
+          { key: "D", text: "Es un punto de presencia perimetral utilizado exclusivamente para respaldos en frío." }
+        ],
+        correct: "B",
+        explanation: "Una región es un área geográfica separada que agrupa múltiples Zonas de Disponibilidad redundantes y enlazadas con fibra óptica de altísima velocidad (< 2ms).",
+        apa: "(Amazon Web Services, 2023a, 2024b)"
+      },
+      {
+        id: 13,
+        question: "¿Por qué las Zonas de Disponibilidad (AZs) dentro de una misma región están físicamente distanciadas por decenas de kilómetros?",
+        options: [
+          { key: "A", text: "Para evitar el cumplimiento de normativas fiscales del país donde operan." },
+          { key: "B", text: "Para garantizar el aislamiento ante desastres físicos locales (inundaciones, cortes eléctricos) y mitigar el riesgo de fallas correlacionadas." },
+          { key: "C", text: "Para incrementar deliberadamente la latencia entre bases de datos primarias y secundarias." },
+          { key: "D", text: "Para permitir que diferentes clientes utilicen diferentes proveedores de hardware." }
+        ],
+        correct: "B",
+        explanation: "La separación física asegura que un incidente o contingencia en un sector no afecte a las otras zonas, permitiendo alta disponibilidad y tolerancia a fallos.",
+        apa: "(Amazon Web Services, 2023a, 2024b)"
+      },
+      {
+        id: 14,
+        question: "¿Qué componente de la infraestructura global de AWS distribuye y almacena en caché contenido web cerca del usuario final mediante Amazon CloudFront?",
+        options: [
+          { key: "A", text: "Zonas de Disponibilidad Secundarias." },
+          { key: "B", text: "Puntos de Presencia (Edge Locations / PoP)." },
+          { key: "C", text: "Puertas de enlace de clientes (Customer Gateways)." },
+          { key: "D", text: "Servidores de administración de consola local." }
+        ],
+        correct: "B",
+        explanation: "Los Edge Locations forman la red CDN perimetral de AWS, acelerando la entrega de contenido estático y dinámico con latencia mínima.",
+        apa: "(Amazon Web Services, 2023a)"
+      },
+      {
+        id: 15,
+        question: "¿Cuáles son las tres modalidades oficiales disponibles en el programa AWS Free Tier?",
+        options: [
+          { key: "A", text: "Siempre Gratis (Always Free), 12 Meses Gratis (12 Months Free) y Pruebas a corto plazo (Trials)." },
+          { key: "B", text: "Básico, Comercial y Empresarial." },
+          { key: "C", text: "Descuento por volumen, Pago anticipado y Créditos gubernamentales." },
+          { key: "D", text: "Comunitario, Educativo e Industrial." }
+        ],
+        correct: "A",
+        explanation: "AWS Free Tier ofrece beneficios Always Free (sin vencimiento), 12 Months Free (primer año de cuenta) y Trials (pruebas temporales específicas).",
+        apa: "(Amazon Web Services, 2024a)"
+      },
+      {
+        id: 16,
+        question: "¿Cuál es la mejor práctica de seguridad crítica que debe aplicarse de inmediato al Usuario Raíz (Root User) de una cuenta de AWS?",
+        options: [
+          { key: "A", text: "Compartir las credenciales de acceso con todos los ingenieros de desarrollo." },
+          { key: "B", text: "Habilitar la Autenticación Multifactor (MFA), abstenerse de generar claves de acceso de API para uso diario y crear usuarios IAM con privilegios mínimos." },
+          { key: "C", text: "Desactivar las políticas de contraseñas complejas para agilizar los inicios de sesión." },
+          { key: "D", text: "Utilizar el usuario raíz para ejecutar scripts automatizados de despliegue continuo (CI/CD)." }
+        ],
+        correct: "B",
+        explanation: "El usuario raíz tiene privilegios irrestrictos. Debe protegerse obligatoriamente con MFA y crear identidades IAM específicas para operaciones cotidianas.",
+        apa: "(Amazon Web Services, 2023b)"
+      },
+      {
+        id: 17,
+        question: "¿Qué herramienta integrada en la Consola web proporciona un entorno Linux con 1 GB de almacenamiento persistente y AWS CLI preinstalado sin costo?",
+        options: [
+          { key: "A", text: "AWS CloudShell." },
+          { key: "B", text: "AWS Systems Manager Fleet Manager." },
+          { key: "C", text: "Amazon EC2 Dedicated Host." },
+          { key: "D", text: "AWS Outposts Terminal." }
+        ],
+        correct: "A",
+        explanation: "AWS CloudShell ofrece una línea de comandos Linux pre-autenticada y basada en navegador con 1 GB de almacenamiento persistente en el directorio $HOME.",
+        apa: "(Amazon Web Services, 2023a)"
+      },
+      {
+        id: 18,
+        question: "¿Qué herramienta analiza la cuenta y ofrece recomendaciones automáticas en 5 pilares (Costos, Rendimiento, Seguridad, Tolerancia a Fallos y Cuotas)?",
+        options: [
+          { key: "A", text: "AWS Trusted Advisor." },
+          { key: "B", text: "AWS Billing Conductor." },
+          { key: "C", text: "AWS Application Discovery Service." },
+          { key: "D", text: "AWS Fault Injection Simulator." }
+        ],
+        correct: "A",
+        explanation: "AWS Trusted Advisor analiza continuamente la configuración de la cuenta emitiendo recomendaciones bajo las 5 categorías de optimización y mejores prácticas.",
+        apa: "(Amazon Web Services, 2024b)"
+      },
+      {
+        id: 19,
+        question: "¿Cuál de los siguientes servicios NO está cubierto por los planes de soporte estándar de AWS (AWS Support Plans)?",
+        options: [
+          { key: "A", text: "Asistencia para la resolución y depuración de errores en servicios de AWS." },
+          { key: "B", text: "Orientación técnica sobre configuración y mejores prácticas generales." },
+          { key: "C", text: "Consultoría profunda y diseño integral de la arquitectura personalizada de software y aplicaciones de un cliente." },
+          { key: "D", text: "Acceso al centro de soporte para consultas operativas sobre facturación." }
+        ],
+        correct: "C",
+        explanation: "El diseño y consultoría personalizada de arquitectura de aplicaciones está fuera del alcance de soporte estándar; requiere contratar AWS Professional Services o APN Partners.",
+        apa: "(Amazon Web Services, 2023a, 2024c)"
+      },
+      {
+        id: 20,
+        question: "¿Qué plan de soporte de AWS incluye un Technical Account Manager (TAM) dedicado y un SLA de respuesta técnica inferior a 15 minutos ante incidentes críticos?",
+        options: [
+          { key: "A", text: "AWS Developer Support." },
+          { key: "B", text: "AWS Business Support." },
+          { key: "C", text: "AWS Enterprise Support." },
+          { key: "D", text: "AWS Basic Support." }
+        ],
+        correct: "C",
+        explanation: "AWS Enterprise Support es el único nivel que proporciona un TAM designado y SLA de respuesta < 15 min (24/7) para sistemas de misión crítica caídos.",
+        apa: "(Amazon Web Services, 2024c)"
+      }
+    ];
+
+    let userAnswers = {};
+    let secondsElapsed = 0;
+    let timerInterval = null;
+    let examFinished = false;
+
+    function initQuiz() {
+      const container = document.getElementById("questionsContainer");
+      container.innerHTML = "";
+
+      questionsData.forEach((q, idx) => {
+        const card = document.createElement("div");
+        card.className = "question-card";
+        card.id = `qCard_${q.id}`;
+
+        let optionsHtml = q.options.map(opt => `
+          <label class="option-label" id="optLabel_${q.id}_${opt.key}">
+            <input type="radio" name="q_${q.id}" value="${opt.key}" class="option-radio" onchange="selectOption(${q.id}, '${opt.key}')">
+            <span class="option-text"><b>${opt.key})</b> ${opt.text}</span>
+          </label>
+        `).join("");
+
+        card.innerHTML = `
+          <div class="question-header">
+            <span class="q-number">PREGUNTA ${String(idx + 1).padStart(2, '0')} / 20</span>
+            <span class="q-points">Valor: 1.00 Ptos</span>
+          </div>
+          <div class="q-text">${q.question}</div>
+          <div class="options-list">
+            ${optionsHtml}
+          </div>
+          <div class="feedback-box" id="feedback_${q.id}">
+            <div class="feedback-title" id="feedbackTitle_${q.id}"></div>
+            <div id="feedbackText_${q.id}"></div>
+            <div class="feedback-apa">Fuente Primaria Oficial: ${q.apa}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      startTimer();
+    }
+
+    function selectOption(qId, selectedKey) {
+      if (examFinished) return;
+      userAnswers[qId] = selectedKey;
+
+      // Update styling
+      const q = questionsData.find(item => item.id === qId);
+      q.options.forEach(opt => {
+        const label = document.getElementById(`optLabel_${qId}_${opt.key}`);
+        if (opt.key === selectedKey) {
+          label.classList.add("selected");
+        } else {
+          label.classList.remove("selected");
+        }
+      });
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answered = Object.keys(userAnswers).length;
+      document.getElementById("answeredCount").innerText = `${answered} / 20`;
+      const pct = (answered / 20) * 100;
+      document.getElementById("progressBar").style.width = `${pct}%`;
+    }
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      secondsElapsed = 0;
+      timerInterval = setInterval(() => {
+        secondsElapsed++;
+        const mins = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
+        const secs = String(secondsElapsed % 60).padStart(2, '0');
+        document.getElementById("timerDisplay").innerText = `${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function submitExam() {
+      if (examFinished) return;
+
+      const answeredCount = Object.keys(userAnswers).length;
+      if (answeredCount < 20) {
+        const confirmSubmit = confirm(`Has respondido ${answeredCount} de 20 preguntas. ¿Deseas finalizar y calificar la evaluación de todas formas?`);
+        if (!confirmSubmit) return;
+      }
+
+      clearInterval(timerInterval);
+      examFinished = true;
+
+      // Disable inputs
+      document.querySelectorAll(".option-radio").forEach(r => r.disabled = true);
+      document.getElementById("btnSubmit").disabled = true;
+      document.getElementById("btnSubmit").style.opacity = "0.6";
+
+      let correctTotal = 0;
+
+      questionsData.forEach(q => {
+        const userChoice = userAnswers[q.id];
+        const isCorrect = userChoice === q.correct;
+        if (isCorrect) correctTotal++;
+
+        const fbBox = document.getElementById(`feedback_${q.id}`);
+        const fbTitle = document.getElementById(`feedbackTitle_${q.id}`);
+        const fbText = document.getElementById(`feedbackText_${q.id}`);
+        fbBox.style.display = "block";
+
+        if (isCorrect) {
+          fbBox.className = "feedback-box correct";
+          fbTitle.innerHTML = `&#10004; ¡Correcto! (+1.00 Pto)`;
+          fbText.innerHTML = `<b>Respuesta Correcta (${q.correct}):</b> ${q.explanation}`;
+        } else {
+          fbBox.className = "feedback-box incorrect";
+          fbTitle.innerHTML = `&#10008; Incorrecto (0.00 Ptos) - Marcaste: ${userChoice || "Sin responder"}`;
+          fbText.innerHTML = `<b>Respuesta Correcta (${q.correct}):</b> ${q.explanation}`;
+        }
+
+        // Highlight correct option
+        const correctLabel = document.getElementById(`optLabel_${q.id}_${q.correct}`);
+        if (correctLabel) {
+          correctLabel.style.borderColor = "var(--correct-border)";
+          correctLabel.style.background = "var(--correct-bg)";
+        }
+      });
+
+      // Vigesimal Calculation
+      const vigesimalScore = (correctTotal * 1.0).toFixed(1);
+      const percentage = ((correctTotal / 20) * 100).toFixed(0);
+      const awsScore = Math.round(100 + (correctTotal / 20) * 900);
+      const isPassed = correctTotal >= 14; // >= 14/20 = 70% (Equiv 700/1000)
+
+      // Update Modal
+      document.getElementById("scoreVigesimal").innerText = vigesimalScore;
+      document.getElementById("scoreAws").innerText = `${awsScore} / 1000`;
+      document.getElementById("correctCount").innerText = `${correctTotal} / 20`;
+      document.getElementById("scorePercent").innerText = `${percentage}%`;
+
+      const statusTag = document.getElementById("statusTag");
+      const scoreCircle = document.getElementById("scoreCircle");
+      const resultMsg = document.getElementById("resultMsg");
+
+      if (isPassed) {
+        statusTag.className = "status-tag status-passed";
+        statusTag.innerText = "¡APROBADO!";
+        scoreCircle.style.borderColor = "var(--primary-green)";
+        scoreCircle.style.boxShadow = "0 0 35px rgba(46, 204, 113, 0.4)";
+        document.getElementById("scoreVigesimal").style.color = "var(--primary-green)";
+        resultMsg.innerHTML = `¡Excelente desempeño! Has superado la nota mínima aprobatoria vigesimal (<b>14.0 / 20</b>), demostrando un dominio sólido de los Conceptos de la Nube según los criterios del examen AWS CLF-C02.`;
+      } else {
+        statusTag.className = "status-tag status-failed";
+        statusTag.innerText = "NO APROBADO";
+        scoreCircle.style.borderColor = "var(--danger-red)";
+        scoreCircle.style.boxShadow = "0 0 35px rgba(231, 29, 54, 0.4)";
+        document.getElementById("scoreVigesimal").style.color = "var(--danger-red)";
+        resultMsg.innerHTML = `La nota obtenida es inferior al puntaje aprobatorio mínimo de <b>14.0 / 20 (70% - 700 pts)</b>. Revisa la retroalimentación técnica de las preguntas marcadas en rojo para afianzar los conceptos del módulo.`;
+      }
+
+      document.getElementById("resultModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("resultModal").style.display = "none";
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    function resetExam() {
+      if (confirm("¿Estás seguro de que deseas reiniciar la evaluación? Se borrarán todas las respuestas.")) {
+        userAnswers = {};
+        examFinished = false;
+        document.getElementById("btnSubmit").disabled = false;
+        document.getElementById("btnSubmit").style.opacity = "1";
+        document.getElementById("resultModal").style.display = "none";
+        initQuiz();
+        updateProgress();
+      }
+    }
+
+    window.onload = initQuiz;
+  </script>
+</body>
+</html>
